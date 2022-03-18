@@ -4,7 +4,7 @@
 
 **A doujinshi downloader with ease for mankind** 
 
-[![Testing](https://github.com/sinkaroid/tomoe/actions/workflows/api.yml/badge.svg)](https://github.com/sinkaroid/tomoe/actions/workflows/test.yml) [![Maintainability](https://api.codeclimate.com/v1/badges/4194c343080bc8366242/maintainability)](https://codeclimate.com/github/sinkaroid/tomoe/maintainability)
+[![Testing](https://github.com/sinkaroid/tomoe/actions/workflows/api.yml/badge.svg)](https://github.com/sinkaroid/tomoe/actions/workflows/test.yml) [![Maintainability](https://api.codeclimate.com/v1/badges/a729e38da1fe1ee520b1/maintainability)](https://codeclimate.com/github/sinkaroid/tomoe/maintainability)
  
 It's a CLI tool for downloading doujinshi from various doujinshi websites
 
