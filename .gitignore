@@ -109,7 +109,6 @@ app.py
 setup.cfg
 .idea
 .vscode
-MANIFEST.in
 .gitchangelog.rc
 h.py
 he.py
