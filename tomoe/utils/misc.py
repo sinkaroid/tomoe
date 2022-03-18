@@ -9,7 +9,6 @@ def choose():
     my_parser.add_argument('--hentaifox', action='store', type=int)
     my_parser.add_argument('--hentai2read', action='store', type=str)
     
-
     args = my_parser.parse_args()
     return args
 
