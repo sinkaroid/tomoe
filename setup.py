@@ -28,7 +28,7 @@ setup(
     long_description_content_type='text/markdown',
     url='https://github.com/sinkaroid/tomoe',
     project_urls={
-        "Documentation": "https://sinkaroid.github.io/tomoe",
+        "Documentation": "https://github.com/sinkaroid/tomoe/wiki",
         "Issue tracker": "https://github.com/sinkaroid/tomoe/issues/new/choose",
         "Funding": "https://paypal.me/sinkaroid",
     },
