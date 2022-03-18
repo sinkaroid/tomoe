@@ -23,7 +23,7 @@ def get_size(string):
     return file
 
 def project():
-    return '<p><h2><a href="https://pypi.org/project/tomoe/">Generated from tomoe: (https://pypi.org/project/tomoe)</a><h2>'
+    return '<p><b><h1><a href="https://pypi.org/project/tomoe/">Generated from tomoe: https://pypi.org/project/tomoe</a></b><h1>'
            
 def convert_html_to_pdf(source_html, output_filename):
     # open output file for writing (truncated binary)

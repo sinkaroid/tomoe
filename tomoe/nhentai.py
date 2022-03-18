@@ -48,7 +48,7 @@ async def get_nh(id: int = choose().nhentai):
             if len(img) == len(os.listdir(neat_dir)):
                 print(
                     f'Successfully downloaded all images in {(time.time() - initial) / 60:.2f} minutes')
-                with open(neat_dir + '/gallery.html', 'w') as f:
+                with open(neat_dir + '/deleteme.phtml', 'x') as f:
                     f.write('<html><center><body>')
                     f.write(f'<h1>{title}</h1>')
                     ## print(os.listdir(neat_dir)[:-1])
@@ -58,34 +58,37 @@ async def get_nh(id: int = choose().nhentai):
                     f.write(f'{project()}')
                     f.write('</body></center></html>')
 
-                    print(f'Static gallery saved to {neat_dir}/gallery.html')
+                    print(f'Static gallery saved to {neat_dir}/deleteme.phtml')
                     print(f'Directory: {os.path.abspath(neat_dir)}')
 
-                ##to_pdf = input("Do you want to convert to pdf aswell? (y/n) ")
+        
                 try:
-                    desired = inputimeout(prompt='Do you want to convert to pdf aswell? (y/n) ', timeout=10)
-                    
+                    desired = inputimeout(prompt='Do you want to render it all to .pdf? (y/n) ', timeout=10)
+                    to_pdf = desired
+
+                    if to_pdf == 'y':
+                        try:
+                            source = open(f"{neat_dir}/deleteme.phtml")
+                            output = f"{neat_dir}/{parser['details']['id']}.pdf"
+
+                            convert_html_to_pdf(source, output)
+                            print(f'Successfully converted to {output}')    
+
+                        except Exception as e:
+                            print(
+                                f"Something went wrong while converting to pdf: {e}")
+                                
+                    elif to_pdf == 'n':
+                        print("Okay")
+                        os.remove(neat_dir + '/deleteme.phtml')
+                        return
+
+                    else:
+                        print("Invalid input")
+                        os.remove(neat_dir + '/deleteme.phtml')
+                        return
+
                 except TimeoutOccurred:
                     print("Timeout occurred")
                     exit()
 
-                to_pdf = desired
-                print(to_pdf)
-
-                if to_pdf == 'y':
-                    try:
-                        source = open(f"{neat_dir}/gallery.html")
-                        output = f"{neat_dir}/gallery.pdf"
-
-                        convert_html_to_pdf(source, output)
-                        print(f'Successfully converted to pdf')       
-
-                    except Exception as e:
-                        print(
-                            f"Something went wrong while converting to pdf: {e}")
-                                
-                elif to_pdf == 'n':
-                    print("Okay")
-                    os.remove(neat_dir + '/gallery.html')
-                else:
-                    print("Invalid input")
