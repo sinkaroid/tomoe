@@ -4,12 +4,13 @@ import requests
 import os
 import re
 import time
-from .utils.misc import choose, split_name
+from .utils.misc import choose, split_name, get_size
 
 pururin = janda.Pururin() 
 
 
 async def get_pur(id: int = choose().pururin):
+    initial = time.time()
     data = await pururin.get(id)
     parser = json.loads(data)
     title = parser['title']
@@ -39,10 +40,10 @@ async def get_pur(id: int = choose().pururin):
             f.write(r.content)
      
             if os.path.exists(neat_dir + '/' + img_name):
-                print(f'Successfully downloaded {img_name} | in {time.time() - start:.2f} seconds')
+                print(f'Successfully downloaded {img_name} | {get_size(neat_dir + "/" + img_name)} MB | in {time.time() - start:.2f} seconds')
             
             if len(img) == len(os.listdir(neat_dir)):
-                print("All images downloaded!")
+                print(f'Successfully downloaded all images in {(time.time() - initial) / 60:.2f} minutes')
                 with open(neat_dir + '/gallery.html', 'w') as f:
                     f.write('<html><body>')
                     for i in os.listdir(neat_dir):

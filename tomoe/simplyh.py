@@ -4,12 +4,13 @@ import requests
 import os
 import re
 import time
-from .utils.misc import choose, split_name
+from .utils.misc import choose, split_name, get_size
 
 simply = janda.SimplyHentai()
 
 
 async def get_sim(id: str = choose().simply):
+    initial = time.time()
     data = await simply.get(id)
     parser = json.loads(data)
 
@@ -37,11 +38,13 @@ async def get_sim(id: str = choose().simply):
             f.write(r.content)
 
             if os.path.exists(f"{neat_dir}/{i+1}.jpg"):
+                file = get_size(f"{neat_dir}/{i+1}.jpg")
                 print(
-                    f'Successfully downloaded {i+1} | in {time.time() - start:.2f} seconds')
+                    f'Successfully downloaded {i+1} | {file} MB | in {time.time() - start:.2f} seconds')
 
             if len(img) == len(os.listdir(neat_dir)):
-                print("All images downloaded!")
+                ## print time elapsed as minutes not second
+                print(f'Successfully downloaded all images in {(time.time() - initial) / 60:.2f} minutes')
                 with open(neat_dir + '/gallery.html', 'w') as f:
                     f.write('<html><body>')
                     for i in os.listdir(neat_dir):
