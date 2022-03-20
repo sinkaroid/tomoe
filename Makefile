@@ -17,7 +17,10 @@ hentai2read:
 	tomoe --hentai2read chaldea_life
 
 simply:
-	tomoe --simply fate-grand-order/perros
+	tomoe --simply "fate-grand-order/perros"
+
+qhentai:
+	tomoe --qhentai "eight-star-sand"
 	
 api-mock: # check api if something down
 	python -m unittest test.test_api
