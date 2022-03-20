@@ -105,12 +105,9 @@ venv.bak/
 
 # test project
 build.sh
-app.py
+kontol.py
 setup.cfg
 .idea
 .vscode
 .gitchangelog.rc
-h.py
-he.py
-pur.py
-parse_object.py
+
