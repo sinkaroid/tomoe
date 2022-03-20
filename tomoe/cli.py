@@ -4,8 +4,8 @@ from tomoe.nhentai import get_nh
 from tomoe.simplyh import get_sim
 from tomoe.hentaifox import get_hfox
 from tomoe.hentai2read import get_h2r
-from tomoe.utils.misc import choose
-
+from tomoe.qhentai import get_qh
+from tomoe.utils.misc import choose, need_args
 
 class Tomoe():
     def __init__(self,
@@ -13,13 +13,15 @@ class Tomoe():
                  Nhentai: str = choose().nhentai,
                  Simplyhentai: str = choose().simply,
                  Haentaifox: str = choose().hentaifox,
-                 Hentai2read: str = choose().hentai2read):
+                 Hentai2read: str = choose().hentai2read,
+                 Qhentai: str = choose().qhentai):
 
         self.pururin = Pururin
         self.nhentai = Nhentai
         self.simply = Simplyhentai
         self.hentaifox = Haentaifox
         self.hentai2read = Hentai2read
+        self.qhentai = Qhentai
 
 
 Api = Tomoe()
@@ -41,6 +43,10 @@ def main():
     async def main_hentai2read():
         await asyncio.gather(get_h2r(Api.hentai2read))
 
+    async def main_qhentai():
+        await asyncio.gather(get_qh(Api.qhentai))
+   
+
     if Api.pururin is not None:
         asyncio.run(main_pururin())
 
@@ -56,8 +62,11 @@ def main():
     elif Api.hentai2read is not None:
         asyncio.run(main_hentai2read())
 
+    elif Api.qhentai is not None:
+        asyncio.run(main_qhentai())
+
     else:
-        print("No arguments was given")
+        need_args()
 
 
 if __name__ == '__main__':
