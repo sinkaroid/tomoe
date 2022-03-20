@@ -46,9 +46,12 @@ setup(
         "Programming Language :: Python :: 3.8",
         "Programming Language :: Python :: 3.9",
         "Programming Language :: Python :: 3.10",
+        "Topic :: Artistic Software",
+        "Topic :: Games/Entertainment",
         "Topic :: Internet :: WWW/HTTP",
         "Topic :: Internet :: WWW/HTTP :: Dynamic Content",
-        "Topic :: Games/Entertainment",
+        "Topic :: Scientific/Engineering :: Image Processing",
+     
 
     ],
     description='A doujinshi downloader for mankind',
