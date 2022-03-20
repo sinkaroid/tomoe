@@ -14,7 +14,7 @@ hentaifox:
 	tomoe --hentaifox 59026
 
 hentai2read:
-	tomoe --hentai2read chaldea_life
+	tomoe --hentai2read chaldea_life 1
 
 simply:
 	tomoe --simply "fate-grand-order/perros"
