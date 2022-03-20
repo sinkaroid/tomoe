@@ -48,7 +48,6 @@ setup(
         "Programming Language :: Python :: 3.10",
         "Topic :: Artistic Software",
         "Topic :: Games/Entertainment",
-        "Topic :: Internet :: WWW/HTTP",
         "Topic :: Internet :: WWW/HTTP :: Dynamic Content",
         "Topic :: Scientific/Engineering :: Image Processing",
      
