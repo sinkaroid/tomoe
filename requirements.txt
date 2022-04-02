@@ -1,4 +1,4 @@
 requests
-janda
-inputimeout
-xhtml2pdf
+janda>=3.0.8
+inputimeout>=1.0.4
+xhtml2pdf>=0.2.6
