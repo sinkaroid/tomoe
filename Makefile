@@ -21,6 +21,9 @@ simply:
 
 qhentai:
 	tomoe --qhentai "eight-star-sand"
+
+asmhentai:
+	tomoe --asmhentai 311851
 	
 api-mock: # check api if something down
 	python -m unittest test.test_api
