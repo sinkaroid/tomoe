@@ -6,11 +6,12 @@ def choose():
     my_parser = argparse.ArgumentParser()
 
     my_parser.add_argument('--nhentai', '-nhentai', action='store', metavar=('ID'), type=int)
-    my_parser.add_argument('--pururin', action='store', metavar=('ID'), type=int)
-    my_parser.add_argument('--simply', action='store', metavar=('PATH_AFTER_WWW'), type=str)
-    my_parser.add_argument('--hentaifox', action='store', metavar=('ID'), type=int)
-    my_parser.add_argument('--hentai2read', nargs=2, action='store', metavar=('PATH', 'CHAPTER'), type=str)
-    my_parser.add_argument('--qhentai', action='store', metavar=('PATH_AFTER_WWW'), type=str)
+    my_parser.add_argument('--pururin', '-pururin', action='store', metavar=('ID'), type=int)
+    my_parser.add_argument('--simply', '-simply', action='store', metavar=('PATH_AFTER_WWW'), type=str)
+    my_parser.add_argument('--hentaifox', '-hentaifox', action='store', metavar=('ID'), type=int)
+    my_parser.add_argument('--hentai2read', '-hentai2read', nargs=2, action='store', metavar=('PATH', 'CHAPTER'), type=str)
+    my_parser.add_argument('--qhentai', '-qhentai', action='store', metavar=('PATH_AFTER_WWW'), type=str)
+    my_parser.add_argument('--asmhentai', '-asmhentai', action='store', metavar=('ID'), type=int)
 
     
     args = my_parser.parse_args()

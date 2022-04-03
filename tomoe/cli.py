@@ -1,11 +1,12 @@
 import asyncio
-from tomoe.pururin import get_pur
-from tomoe.nhentai import get_nh
-from tomoe.simplyh import get_sim
-from tomoe.hentaifox import get_hfox
-from tomoe.hentai2read import get_h2r
-from tomoe.qhentai import get_qh
-from tomoe.utils.misc import choose, need_args
+from tomoe.tomoe.pururin import get_pur
+from tomoe.tomoe.nhentai import get_nh
+from tomoe.tomoe.simplyh import get_sim
+from tomoe.tomoe.hentaifox import get_hfox
+from tomoe.tomoe.hentai2read import get_h2r
+from tomoe.tomoe.qhentai import get_qh
+from tomoe.tomoe.asmhentai import get_asm
+from tomoe.tomoe.utils.misc import choose, need_args
 
 class Tomoe():
     def __init__(self,
@@ -14,7 +15,8 @@ class Tomoe():
                  Simplyhentai: str = choose().simply,
                  Haentaifox: str = choose().hentaifox,
                  Hentai2read: str = choose().hentai2read,
-                 Qhentai: str = choose().qhentai):
+                 Qhentai: str = choose().qhentai,
+                 Asmhentai: str = choose().asmhentai):
 
         self.pururin = Pururin
         self.nhentai = Nhentai
@@ -22,6 +24,7 @@ class Tomoe():
         self.hentaifox = Haentaifox
         self.hentai2read = Hentai2read
         self.qhentai = Qhentai
+        self.asmhentai = Asmhentai
 
 
 Api = Tomoe()
@@ -45,6 +48,9 @@ def main():
 
     async def main_qhentai():
         await asyncio.gather(get_qh(Api.qhentai))
+
+    async def main_asmhentai():
+        await asyncio.gather(get_asm(Api.asmhentai))
    
 
     if Api.pururin is not None:
@@ -64,6 +70,9 @@ def main():
 
     elif Api.qhentai is not None:
         asyncio.run(main_qhentai())
+
+    elif Api.asmhentai is not None:
+        asyncio.run(main_asmhentai())
 
     else:
         need_args()
