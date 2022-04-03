@@ -1,4 +1,4 @@
-name: Hentaifox download
+name: Hentaifox dl
 on:
   push:
     branches:

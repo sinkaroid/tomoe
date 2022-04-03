@@ -1,4 +1,4 @@
-name: Simply-hentai download
+name: Simply-hentai dl
 on:
   push:
     branches:

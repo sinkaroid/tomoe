@@ -1,4 +1,4 @@
-name: Qhentai download
+name: Qhentai dl
 on:
   push:
     branches:

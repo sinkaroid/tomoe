@@ -1,4 +1,4 @@
-name: Nhentai download
+name: Nhentai dl
 on:
   push:
     branches:
