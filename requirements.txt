@@ -1,4 +1,4 @@
 requests
-janda>=3.0.8
+janda>=3.0.11
 inputimeout>=1.0.4
-xhtml2pdf>=0.2.6
+xhtml2pdf>=0.2.7
