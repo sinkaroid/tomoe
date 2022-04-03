@@ -102,4 +102,3 @@ async def get_nh(id: int = choose().nhentai):
                     print("Timeout occurred")
                     os.remove(neat_dir + '/tomoe.html')
                     exit()
-
