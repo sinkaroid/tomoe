@@ -1,14 +1,17 @@
-<a href="https://github.com/sinkaroid/tomoe/wiki"><img align="right" src="https://cdn.discordapp.com/attachments/952117487166705747/954724094379708436/s.png" width="200"></a>
-
-# tomoe [![Testing](https://github.com/sinkaroid/tomoe/actions/workflows/api.yml/badge.svg)](https://github.com/sinkaroid/tomoe/actions/workflows/api.yml) [![Maintainability](https://api.codeclimate.com/v1/badges/a729e38da1fe1ee520b1/maintainability)](https://codeclimate.com/github/sinkaroid/tomoe/maintainability)
+# Tomoe [![Testing](https://github.com/sinkaroid/tomoe/actions/workflows/api.yml/badge.svg)](https://github.com/sinkaroid/tomoe/actions/workflows/api.yml) [![Maintainability](https://api.codeclimate.com/v1/badges/a729e38da1fe1ee520b1/maintainability)](https://codeclimate.com/github/sinkaroid/tomoe/maintainability)
+<a href="https://github.com/sinkaroid/tomoe/wiki"><img align="right" src="https://cdn.discordapp.com/attachments/952117487166705747/954724094379708436/s.png" width="180"></a>
 
 A doujinshi downloader with ease 
 
-tomoe is a CLI tool for downloading doujinshi from various doujinboards, apart from nHentai this stuff also has plenty sites coverage. It's also has built-in auto render into PDF for it's utility, hopefully will be reusable.  
+Tomoe is a CLI tool for downloading doujinshi from various doujinboards, apart from nHentai this stuff also has plenty sites coverage. It's also has built-in auto render into PDF for it's utility, hopefully will be reusable.  
 
-> 🚀 [Contributing](https://github.com/sinkaroid/tomoe/blob/master/CONTRIBUTING.md) • [Documentation](https://github.com/sinkaroid/tomoe/wiki) • [Releases](https://github.com/sinkaroid/tomoe/releases) • [Report Issues](https://github.com/sinkaroid/tomoe/issues/new/choose) • [Support this Project](https://paypal.me/sinkaroid)
+> 🚀 [Contributing](https://github.com/sinkaroid/tomoe/blob/master/CONTRIBUTING.md) • [Documentation](https://github.com/sinkaroid/tomoe/wiki) • [Commands](#options) • [Report Issues](https://github.com/sinkaroid/tomoe/issues/new/choose) • [Support this Project](https://paypal.me/sinkaroid)
 
-| Options         | Status                                                                                                                                                                          | Resolved time | Data retrieved         |
+## Tomoe vs. the doujinboards
+Some tests has high resolve time and rendering a bit longer, because some source does not providing real extension of a images, tomoe should check and guessing it's format.
+Here's a quick results:
+
+| Site            | Status                                                                                                                                                                          | Resolved time | Data retrieved         |
 |-----------------|---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|---------------|------------------------|
 | `nhentai`       | [![Nhentai download](https://github.com/sinkaroid/tomoe/actions/workflows/nhentai.yml/badge.svg)](https://github.com/sinkaroid/tomoe/actions/workflows/nhentai.yml)             | ~0.52 minutes | ~10.39 MB (26 content) |
 | `pururin`       | [![Pururin download](https://github.com/sinkaroid/tomoe/actions/workflows/pururin.yml/badge.svg)](https://github.com/sinkaroid/tomoe/actions/workflows/pururin.yml)             | ~0.63 minutes | ~15.55 MB (20 content) |
@@ -58,7 +61,7 @@ It's fairly simple to install tomoe
 ### 🚀from this repository
 Clone this repository, and do `python setup.py install`
 
-## Usage
+## Command usage
 `tomoe --args <bookID>`
 
 ## Quick example
