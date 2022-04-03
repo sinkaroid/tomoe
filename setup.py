@@ -31,6 +31,7 @@ setup(
         "Documentation": "https://github.com/sinkaroid/tomoe/wiki",
         "Issue tracker": "https://github.com/sinkaroid/tomoe/issues/new/choose",
         "Funding": "https://paypal.me/sinkaroid",
+        "Discord": "https://discord.gg/8wj4vM5hHM",
     },
     packages=['tomoe', 'tomoe.utils'],
     license='MIT',
