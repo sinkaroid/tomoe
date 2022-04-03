@@ -33,7 +33,7 @@ async def get_nh(id: int = choose().nhentai):
     neat_dir = re.sub(r'\s+', '_', neat_dir)
 
     if not os.path.exists(neat_dir):
-        os.makedirs(neat_dir, 0o700)
+        os.makedirs(neat_dir)
 
     if len(os.listdir(neat_dir)) >= len(img):
         print("All images already downloaded! If you're doubt kindly remove this folder and re-download")
