@@ -1,4 +1,4 @@
-name: Qhentai dl
+name: qhentai dl
 on:
   push:
     branches:

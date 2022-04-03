@@ -1,4 +1,4 @@
-name: Pururin dl
+name: pururin dl
 on:
   push:
     branches:
