@@ -1,14 +1,22 @@
-# Tomoe
-
 <a href="https://github.com/sinkaroid/tomoe/wiki"><img align="right" src="https://cdn.discordapp.com/attachments/952117487166705747/954724094379708436/s.png" width="200"></a>
 
-[![Testing](https://github.com/sinkaroid/tomoe/actions/workflows/api.yml/badge.svg)](https://github.com/sinkaroid/tomoe/actions/workflows/api.yml) [![Maintainability](https://api.codeclimate.com/v1/badges/a729e38da1fe1ee520b1/maintainability)](https://codeclimate.com/github/sinkaroid/tomoe/maintainability)
+# tomoe [![Testing](https://github.com/sinkaroid/tomoe/actions/workflows/api.yml/badge.svg)](https://github.com/sinkaroid/tomoe/actions/workflows/api.yml) [![Maintainability](https://api.codeclimate.com/v1/badges/a729e38da1fe1ee520b1/maintainability)](https://codeclimate.com/github/sinkaroid/tomoe/maintainability)
 
-**A doujinshi downloader with ease**  
+A doujinshi downloader with ease 
 
-Tomoe is a CLI tool for downloading doujinshi from various doujinboards, apart from nHentai this stuff also has plenty sites coverage. It's also has built-in auto render into PDF for it's utility, hopefully will be reusable and one step closer to a full-fledged downloader.  
+tomoe is a CLI tool for downloading doujinshi from various doujinboards, apart from nHentai this stuff also has plenty sites coverage. It's also has built-in auto render into PDF for it's utility, hopefully will be reusable.  
 
 > 🚀 [Contributing](https://github.com/sinkaroid/tomoe/blob/master/CONTRIBUTING.md) • [Documentation](https://github.com/sinkaroid/tomoe/wiki) • [Releases](https://github.com/sinkaroid/tomoe/releases) • [Report Issues](https://github.com/sinkaroid/tomoe/issues/new/choose) • [Support this Project](https://paypal.me/sinkaroid)
+
+| Options         | Status                                                                                                                                                                          | Resolved time | Data retrieved         |
+|-----------------|---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|---------------|------------------------|
+| `nhentai`       | [![Nhentai download](https://github.com/sinkaroid/tomoe/actions/workflows/nhentai.yml/badge.svg)](https://github.com/sinkaroid/tomoe/actions/workflows/nhentai.yml)             | ~0.52 minutes | ~10.39 MB (26 content) |
+| `pururin`       | [![Pururin download](https://github.com/sinkaroid/tomoe/actions/workflows/pururin.yml/badge.svg)](https://github.com/sinkaroid/tomoe/actions/workflows/pururin.yml)             | ~0.63 minutes | ~15.55 MB (20 content) |
+| `hentaifox`     | [![Hentaifox download](https://github.com/sinkaroid/tomoe/actions/workflows/hentaifox.yml/badge.svg)](https://github.com/sinkaroid/tomoe/actions/workflows/hentaifox.yml)       | ~0.33 minutes | ~8.18 MB (26 content)  |
+| `hentai2read`   | [![Hentai2read download](https://github.com/sinkaroid/tomoe/actions/workflows/hentai2read.yml/badge.svg)](https://github.com/sinkaroid/tomoe/actions/workflows/hentai2read.yml) | ~0.10 minutes | ~7.78 MB (26 content)  |
+| `simply-hentai` | [![Simply-hentai download](https://github.com/sinkaroid/tomoe/actions/workflows/simply.yml/badge.svg)](https://github.com/sinkaroid/tomoe/actions/workflows/simply.yml)         | ~0.29 minutes | ~42.61 MB (19 content) |
+| `qhentai`       | [![Qhentai download](https://github.com/sinkaroid/tomoe/actions/workflows/qhentai.yml/badge.svg)](https://github.com/sinkaroid/tomoe/actions/workflows/qhentai.yml)             | ~0.65 minutes | ~17.82 MB (30 content) |
+| `asmhentai`     | [![Asmhentai download](https://github.com/sinkaroid/tomoe/actions/workflows/asmhentai.yml/badge.svg)](https://github.com/sinkaroid/tomoe/actions/workflows/asmhentai.yml)       | ~0.23 minutes | ~4.96 MB (23 content)  |
 
 ## Features
 - Plenty of sites coverage
@@ -16,22 +24,21 @@ Tomoe is a CLI tool for downloading doujinshi from various doujinboards, apart f
 - Minimalist dependencies
 - Download with ease, doesn't require you a lot of arguments
 
-## Site support
-<details>
-<img src="https://cdn.discordapp.com/attachments/952117487166705747/955118232119955466/nh-tomoe.png" width="700" alt="tomoe">
-</details> 
+<img src="https://cdn.discordapp.com/attachments/952117487166705747/955118232119955466/nh-tomoe.png" width="600" alt="tomoe">
 
-- [x] nhentai
-- [x] pururin
-- [x] hentaifox
-- [x] hentai2read
-- [x] simply-hentai
-- [x] qhentai 
-- [x] asmhentai
+## Site support
+Currently tomoe support the following websites:
+- [nhentai.net](https://nhentai.net/)
+- [pururin.to](https://pururin.to/)
+- [hentaifox.com](https://hentaifox.com/)
+- [hentai2read.com](https://hentai2read.com/)
+- [simply-hentai.com](https://simply-hentai.com/)
+- [qhentai.net](https://qhentai.net/)
+- [asmhentai.com](https://asmhentai.com/)
 
 ## Dependencies
-Tomoe depends on [requests](https://requests.readthedocs.io/en/master/) + [asyncIO](https://docs.python.org/3/library/asyncio.html), 
-and uses [Janda](https://pypi.org/project/janda/) for it's doujin library client for Python.
+tomoe depends on [requests](https://requests.readthedocs.io/en/master/) + [asyncio](https://docs.python.org/3/library/asyncio.html), 
+and uses [janda](https://pypi.org/project/janda/) for it's doujin library client for Python.
 
 ## Prerequisites
 <table>
