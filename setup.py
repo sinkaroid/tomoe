@@ -28,10 +28,10 @@ setup(
     long_description_content_type='text/markdown',
     url='https://github.com/sinkaroid/tomoe',
     project_urls={
-        "Documentation": "https://github.com/sinkaroid/tomoe/wiki",
-        "Issue tracker": "https://github.com/sinkaroid/tomoe/issues/new/choose",
-        "Funding": "https://paypal.me/sinkaroid",
         "Discord": "https://discord.gg/8wj4vM5hHM",
+        "Funding": "https://paypal.me/sinkaroid",
+        "Issue tracker": "https://github.com/sinkaroid/tomoe/issues/new/choose",
+        "Documentation": "https://github.com/sinkaroid/tomoe/wiki",
     },
     packages=['tomoe', 'tomoe.utils'],
     license='MIT',
@@ -51,8 +51,6 @@ setup(
         "Topic :: Games/Entertainment",
         "Topic :: Internet :: WWW/HTTP :: Dynamic Content",
         "Topic :: Scientific/Engineering :: Image Processing",
-     
-
     ],
     description='A doujinshi downloader for mankind',
     include_package_data=True,
