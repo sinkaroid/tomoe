@@ -16,6 +16,9 @@ Steps to reproduce the behavior:
 **Expected behavior**
 A clear and concise description of what you expected to happen.
 
+**Specify an id or any parameter from the website related this bug**
+For example nhentai id 177013
+
 **Desktop (please complete the following information):**
  - OS: [e.g. iOS]
  - Python version
