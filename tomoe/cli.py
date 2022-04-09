@@ -8,15 +8,18 @@ from tomoe.qhentai import get_qh
 from tomoe.asmhentai import get_asm
 from tomoe.utils.misc import choose, need_args
 
-class Tomoe():
-    def __init__(self,
-                 Pururin: str = choose().pururin,
-                 Nhentai: str = choose().nhentai,
-                 Simplyhentai: str = choose().simply,
-                 Haentaifox: str = choose().hentaifox,
-                 Hentai2read: str = choose().hentai2read,
-                 Qhentai: str = choose().qhentai,
-                 Asmhentai: str = choose().asmhentai):
+
+class Tomoe:
+    def __init__(
+        self,
+        Pururin: str = choose().pururin,
+        Nhentai: str = choose().nhentai,
+        Simplyhentai: str = choose().simply,
+        Haentaifox: str = choose().hentaifox,
+        Hentai2read: str = choose().hentai2read,
+        Qhentai: str = choose().qhentai,
+        Asmhentai: str = choose().asmhentai,
+    ):
 
         self.pururin = Pururin
         self.nhentai = Nhentai
@@ -51,7 +54,6 @@ def main():
 
     async def main_asmhentai():
         await asyncio.gather(get_asm(Api.asmhentai))
-   
 
     if Api.pururin is not None:
         asyncio.run(main_pururin())
@@ -78,5 +80,5 @@ def main():
         need_args()
 
 
-if __name__ == '__main__':
+if __name__ == "__main__":
     main()
