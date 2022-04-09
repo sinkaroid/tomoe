@@ -1,5 +1,23 @@
-<a name="3.1.0"></a>
-## [3.1.0](https://github.com/sinkaroid/tomoe/compare/3.0.1-alpha...3.1.0) (2022-04-09)
+<a name="3.0.4-alpha"></a>
+## [3.0.4-alpha](https://github.com/sinkaroid/tomoe/compare/3.0.4-alpha...3.0.4-alpha) (2022-04-09)
+
+### Bug Fixes
+- extra links that actually does not relative on pypi ([2b8932b](https://github.com/sinkaroid/tomoe/commit/2b8932b39ed0ebe4f0642b411ece75865dd7d588))
+
+### Chore
+- release 3.0.5 ([ffae4e1](https://github.com/sinkaroid/tomoe/commit/ffae4e123aa930062dbfd7a688f60342c8bacb3f))
+- remove unused comments on `utils/misc` ([345c5b0](https://github.com/sinkaroid/tomoe/commit/345c5b0fa6260b74649bb7c3fd484f0c4f8f38b6))
+- staged update for changelogs ([4224d87](https://github.com/sinkaroid/tomoe/commit/4224d87992ceb3332dee02148ef954e539335c66))
+
+### Code Refactoring
+- black ([6c502a0](https://github.com/sinkaroid/tomoe/commit/6c502a04ee50b1f8cc9dd24964219f955d43f5fd))
+
+### Docs
+- update security policy ([2a44d34](https://github.com/sinkaroid/tomoe/commit/2a44d34e5d8d4cea2fead28ebbb9ca7ba5847f46))
+
+
+<a name="3.0.4-alpha"></a>
+## [3.0.4-alpha](https://github.com/sinkaroid/tomoe/compare/3.0.1.alpha...3.0.4-alpha) (2022-04-03)
 
 ### Bug Fixes
 - minor improvements ([8c9bcdf](https://github.com/sinkaroid/tomoe/commit/8c9bcdf34a1fd842d946dbbd29e1d907a3130f28))
@@ -15,7 +33,6 @@
 
 ### Chore
 - **readme:** update section ([480a046](https://github.com/sinkaroid/tomoe/commit/480a046f71cefd612ea9efa4f24d210db12251e8))
-- remove unused comments on `utils/misc` ([345c5b0](https://github.com/sinkaroid/tomoe/commit/345c5b0fa6260b74649bb7c3fd484f0c4f8f38b6))
 - update readme ([de84d9b](https://github.com/sinkaroid/tomoe/commit/de84d9bcdfe15b3efaf14238ee8596929007b914))
 - update readme ([8a18f66](https://github.com/sinkaroid/tomoe/commit/8a18f66e87c393e6a5fc56a02377bde6c9a7a213))
 - update tests in readme ([670cb3d](https://github.com/sinkaroid/tomoe/commit/670cb3d878704ae1a0f8bd17c90f4dcd55c98e99))
@@ -25,11 +42,7 @@
 - update value ([9624d06](https://github.com/sinkaroid/tomoe/commit/9624d06e572ff5f176ac3cb911898ae4cf79ce5b))
 
 ### Code Refactoring
-- black ([6c502a0](https://github.com/sinkaroid/tomoe/commit/6c502a04ee50b1f8cc9dd24964219f955d43f5fd))
 - update ci value ([1e2294e](https://github.com/sinkaroid/tomoe/commit/1e2294e77b67cd8eb9fab2761c7212b5187235b6))
-
-### Docs
-- update security policy ([2a44d34](https://github.com/sinkaroid/tomoe/commit/2a44d34e5d8d4cea2fead28ebbb9ca7ba5847f46))
 
 ### Features
 - add support for `asmhentai` ([664d416](https://github.com/sinkaroid/tomoe/commit/664d416b05f1cff52debddcfa8c798c74a7831f2))
@@ -38,8 +51,8 @@
 - add asmhentai to tests ([ebc0b29](https://github.com/sinkaroid/tomoe/commit/ebc0b290dc0acdb9d76964c136c818e37ef4deb2))
 
 
-<a name="3.0.1-alpha"></a>
-## [3.0.1-alpha](https://github.com/sinkaroid/tomoe/compare/75985fbbdfcf75208d186ea5bcd48b4a888ead37...3.0.1-alpha) (2022-03-20)
+<a name="3.0.1.alpha"></a>
+## [3.0.1.alpha](https://github.com/sinkaroid/tomoe/compare/75985fbbdfcf75208d186ea5bcd48b4a888ead37...3.0.1.alpha) (2022-03-20)
 
 ### Bug Fixes
 - required files ([3400470](https://github.com/sinkaroid/tomoe/commit/34004706afed62ff284847e34bef66286336c667))
