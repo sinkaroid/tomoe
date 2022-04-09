@@ -93,7 +93,6 @@ def get_size_folder(folder):
 
 
 def project():
-    """watermark hehe"""
     return '<p><b><h1><a href="https://pypi.org/project/tomoe/">Generated from tomoe: https://pypi.org/project/tomoe</a></b><h1>'
 
 
