@@ -1,4 +1,4 @@
-name: asmhentai dl
+name: asmhentai
 on:
   push:
     branches:
