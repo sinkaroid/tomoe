@@ -1,4 +1,4 @@
-__version__ = "3.0.6"
+__version__ = "3.0.7"
 from .pururin import get_pur
 from .nhentai import get_nh
 from .hentaifox import get_hfox
