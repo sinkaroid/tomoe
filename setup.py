@@ -52,7 +52,7 @@ setup(
         "Topic :: Internet :: WWW/HTTP :: Dynamic Content",
         "Topic :: Scientific/Engineering :: Image Processing",
     ],
-    description='A doujinshi downloader for mankind',
+    description='A doujinshi downloader with ease',
     include_package_data=True,
     entry_points={
         'console_scripts': [
