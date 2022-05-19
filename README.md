@@ -5,7 +5,7 @@
 
 Tomoe is a CLI tool for downloading doujinshi from various doujinboards. It's also has built-in auto render into PDF for it's utility, hopefully will be reusable.  
 
-> 🚀 [Commands](#options) • [Contributing](https://github.com/sinkaroid/tomoe/blob/master/CONTRIBUTING.md) • [Documentation](https://github.com/sinkaroid/tomoe/wiki) • [Report Issues](https://github.com/sinkaroid/tomoe/issues/new/choose) • [Support this Project](https://paypal.me/sinkaroid)
+> 🚀 [Commands](#options) • [Documentation](https://github.com/sinkaroid/tomoe/wiki) • [Report Issues](https://github.com/sinkaroid/tomoe/issues/new/choose)
 
 ## Tomoe vs. the doujinboards
 Some tests has high resolve time and rendering a bit longer,  
