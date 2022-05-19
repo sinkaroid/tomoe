@@ -1,4 +1,4 @@
-name: nhentai dl
+name: nhentai
 on:
   push:
     branches:

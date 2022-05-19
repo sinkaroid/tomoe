@@ -1,4 +1,4 @@
-name: simplyh dl
+name: simplyh
 on:
   push:
     branches:

@@ -1,4 +1,4 @@
-name: hentai2read dl
+name: hentai2read
 on:
   push:
     branches:

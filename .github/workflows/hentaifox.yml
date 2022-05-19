@@ -1,4 +1,4 @@
-name: hentaifox dl
+name: hentaifox
 on:
   push:
     branches:
