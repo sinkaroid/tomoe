@@ -1,5 +1,4 @@
 import janda
-import json
 import requests
 import os
 import re
@@ -21,7 +20,7 @@ simply = janda.SimplyHentai()
 async def get_sim(id: str = choose().simply):
     initial = time.time()
     data = await simply.get(id)
-    parser = json.loads(data)
+    parser = janda.resolve(data)
 
     title = parser["title"]
     title = re.sub(r"[^\w\s]", "", title)

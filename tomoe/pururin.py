@@ -1,5 +1,4 @@
 import janda
-import json
 import requests
 import os
 import re
@@ -20,7 +19,7 @@ pururin = janda.Pururin()
 async def get_pur(id: int = choose().pururin):
     initial = time.time()
     data = await pururin.get(id)
-    parser = json.loads(data)
+    parser = janda.resolve(data)
     title = parser["title"]
     title = re.sub(r"[^\w\s]", "", title)
     print(f"Title: {title}")

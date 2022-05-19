@@ -1,5 +1,4 @@
 import janda
-import json
 import requests
 import os
 import re
@@ -20,7 +19,7 @@ hfox = janda.Hentaifox()
 async def get_hfox(id: int = choose().hentaifox):
     initial = time.time()
     data = await hfox.get(id)
-    parser = json.loads(data)
+    parser = janda.resolve(data)
     title = parser["title"]
     title = re.sub(r"[^\w\s]", "", title)
     number = parser["id"]

@@ -1,5 +1,4 @@
 import janda
-import json
 import requests
 import os
 import re
@@ -20,7 +19,7 @@ nh = janda.Nhentai()
 async def get_nh(id: int = choose().nhentai):
     initial = time.time()
     data = await nh.get(id)
-    parser = json.loads(data)
+    parser = janda.resolve(data)
 
     title = parser["details"]["title"]["pretty"]
     title = re.sub(r"[^\w\s]", "", title)

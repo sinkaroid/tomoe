@@ -1,5 +1,4 @@
 import janda
-import json
 import requests
 import os
 import re
@@ -31,7 +30,7 @@ else:
 async def get_h2r(id: str = par1, chapter: int = par2):
     initial = time.time()
     data = await h2r.get(id[0], chapter)
-    parser = json.loads(data)
+    parser = janda.resolve(data)
     title = parser["title"]
     title = re.sub(r"[^\w\s]", "", title)
     print(f"Title: {title}")
