@@ -1,6 +1,11 @@
+import janda
 import argparse
 import os
+import logging
+import re
 from xhtml2pdf import pisa
+
+logging.basicConfig(format="%(asctime)s - %(message)s", level=logging.INFO)
 
 
 def choose():
@@ -25,9 +30,6 @@ def choose():
         action="store",
         metavar=("PATH", "CHAPTER"),
         type=str,
-    )
-    my_parser.add_argument(
-        "--qhentai", "-qhentai", action="store", metavar=("PATH_AFTER_WWW"), type=str
     )
     my_parser.add_argument(
         "--asmhentai", "-asmhentai", action="store", metavar=("ID"), type=int
@@ -142,3 +144,53 @@ def need_args():
     bool
     """
     return print("No arguments was given")
+
+
+def log_data(case, note):
+    """Logging data
+
+    Parameters
+    ----------
+    case : str
+        Case of the log
+
+    note : str
+        Note of the log
+    """
+    logging.info(f"{case}: {note}")
+
+
+def log_file(file: str, size: str, took: str):
+    """Logging file
+
+    Parameters
+    ----------
+    case : str
+        Case of the log
+
+    file : str
+        File name
+
+    size : str
+        File size
+
+    took : str
+        Time took
+    """
+    logging.info(f"Successfully downloaded {file}: {size} MB, took: {took} Seconds")
+
+
+def log_final(taken: str, total_size: str):
+    """Final log
+
+    Parameters
+    ----------
+    taken : str
+        Time took
+
+    total_size : str
+        Total size
+    """
+    logging.info(
+        f"Successfully downloaded all images taken {taken} minutes with total size {total_size} MB"
+    )
