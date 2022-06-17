@@ -27,3 +27,6 @@ api-mock: # check api if something down
 
 upload:
 	bash build.sh
+
+changelog:
+	git-changelog -o CHANGELOG.md -s angular -t angular .
