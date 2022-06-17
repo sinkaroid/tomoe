@@ -1,5 +1,37 @@
 <a name="3.1.0"></a>
-## [3.1.0](https://github.com/sinkaroid/tomoe/compare/3.0.6-alpha...3.1.0) (2022-05-19)
+## [3.1.0](https://github.com/sinkaroid/tomoe/compare/3.0.10-alpha...3.1.0) (2022-06-18)
+
+### Chore
+- **release:** 3.0.10-alpha ([a3a5c90](https://github.com/sinkaroid/tomoe/commit/a3a5c90907548dfdc29d327eea15187da496a290))
+
+### CI
+- fix simply-hentai test ([9161d53](https://github.com/sinkaroid/tomoe/commit/9161d53b2333c27fe7aa06e27915c84d89bca712))
+
+### Docs
+- update readme docs ([2df8efd](https://github.com/sinkaroid/tomoe/commit/2df8efd3a4fbade4f5283300523b58a7c97792f7))
+
+### Features
+- **tomoe:** improve logging, use latest janda ([48a32c9](https://github.com/sinkaroid/tomoe/commit/48a32c94c7f1127aeccd5804ce8b31c8eb56c505))
+- add interrupted handler, deprecate qhentai ([103a76c](https://github.com/sinkaroid/tomoe/commit/103a76ceef3b25ecaf1b5ae19913317d50a552a5))
+- add logging method ([064bc58](https://github.com/sinkaroid/tomoe/commit/064bc5856879e4ac242b6f31b2eda1eed08e3879))
+
+### Tests
+- deprecate qhentai support ([9569ff8](https://github.com/sinkaroid/tomoe/commit/9569ff8d1f5504a2430b133f64d59cf4f532b168))
+
+
+<a name="3.0.10-alpha"></a>
+## [3.0.10-alpha](https://github.com/sinkaroid/tomoe/compare/3.0.7-alpha...3.0.10-alpha) (2022-05-19)
+
+### CI
+- improve major name on each workflows ([b3901dd](https://github.com/sinkaroid/tomoe/commit/b3901ddd6e8079136d1681bce7a27672be521253))
+- improve major name on each workflows ([e7e46fd](https://github.com/sinkaroid/tomoe/commit/e7e46fd57b8ff208fa917957658641d9f4fa7878))
+
+### Docs
+- staged changes update ([9afdc92](https://github.com/sinkaroid/tomoe/commit/9afdc921f768073cc92159f8e9085cf2f50be98d))
+
+
+<a name="3.0.7-alpha"></a>
+## [3.0.7-alpha](https://github.com/sinkaroid/tomoe/compare/3.0.6-alpha...3.0.7-alpha) (2022-05-19)
 
 ### Build
 - minor improvements for module description ([d1cb768](https://github.com/sinkaroid/tomoe/commit/d1cb768f008aae75971d1991043988126fe3a270))
