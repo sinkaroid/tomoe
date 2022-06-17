@@ -17,7 +17,7 @@ hentai2read:
 	tomoe --hentai2read chaldea_life 1
 
 simply:
-	tomoe --simply "fate-grand-order/perros"
+	tomoe --simply "fate-grand-order/fgo-no-ashibon-fgo-foot-book/all-pages"
 
 asmhentai:
 	tomoe --asmhentai 311851
