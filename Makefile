@@ -19,9 +19,6 @@ hentai2read:
 simply:
 	tomoe --simply "fate-grand-order/perros"
 
-qhentai:
-	tomoe --qhentai "eight-star-sand"
-
 asmhentai:
 	tomoe --asmhentai 311851
 	
