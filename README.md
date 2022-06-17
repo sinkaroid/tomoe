@@ -11,15 +11,14 @@ Tomoe is a CLI tool for downloading doujinshi from various doujinboards. It's al
 Some tests has high resolve time and rendering a bit longer,  
 because some source does not providing real extension of a images, tomoe should check and guessing it's format
 
-| Site            | Status                                                                                                                                                                          | Resolved time | Data retrieved         |
-|-----------------|---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|---------------|------------------------|
-| `nhentai`       | [![Nhentai download](https://github.com/sinkaroid/tomoe/actions/workflows/nhentai.yml/badge.svg)](https://github.com/sinkaroid/tomoe/actions/workflows/nhentai.yml)             | ~0.52 minutes | ~10.39 MB (26 content) |
-| `pururin`       | [![Pururin download](https://github.com/sinkaroid/tomoe/actions/workflows/pururin.yml/badge.svg)](https://github.com/sinkaroid/tomoe/actions/workflows/pururin.yml)             | ~0.63 minutes | ~15.55 MB (20 content) |
-| `hentaifox`     | [![Hentaifox download](https://github.com/sinkaroid/tomoe/actions/workflows/hentaifox.yml/badge.svg)](https://github.com/sinkaroid/tomoe/actions/workflows/hentaifox.yml)       | ~0.33 minutes | ~8.18 MB (26 content)  |
-| `hentai2read`   | [![Hentai2read download](https://github.com/sinkaroid/tomoe/actions/workflows/hentai2read.yml/badge.svg)](https://github.com/sinkaroid/tomoe/actions/workflows/hentai2read.yml) | ~0.10 minutes | ~7.78 MB (26 content)  |
-| `simply-hentai` | [![Simply-hentai download](https://github.com/sinkaroid/tomoe/actions/workflows/simply.yml/badge.svg)](https://github.com/sinkaroid/tomoe/actions/workflows/simply.yml)         | ~0.29 minutes | ~42.61 MB (19 content) |
-| `qhentai`       | [![Qhentai download](https://github.com/sinkaroid/tomoe/actions/workflows/qhentai.yml/badge.svg)](https://github.com/sinkaroid/tomoe/actions/workflows/qhentai.yml)             | ~0.65 minutes | ~17.82 MB (30 content) |
-| `asmhentai`     | [![Asmhentai download](https://github.com/sinkaroid/tomoe/actions/workflows/asmhentai.yml/badge.svg)](https://github.com/sinkaroid/tomoe/actions/workflows/asmhentai.yml)       | ~0.23 minutes | ~4.96 MB (23 content)  |
+| Site            | Status                                                                                                                                                                    | Average time | Downloaded contents         |
+| --------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------- | ---------------------- |
+| `nhentai`       | [![Nhentai download](https://github.com/sinkaroid/tomoe/workflows/nhentai/badge.svg)](https://github.com/sinkaroid/tomoe/actions/workflows/nhentai.yml)                   | ~0.52 minutes | ~10.39 MB (26 content) |
+| `pururin`       | [![Pururin download](https://github.com/sinkaroid/tomoe/workflows/pururin/badge.svg)](https://github.com/sinkaroid/tomoe/actions/workflows/pururin.yml)                   | ~0.63 minutes | ~15.55 MB (20 content) |
+| `hentaifox`     | [![Hentaifox download](https://github.com/sinkaroid/tomoe/workflows/hentaifox/badge.svg)](https://github.com/sinkaroid/tomoe/actions/workflows/hentaifox.yml)               | ~0.33 minutes | ~8.18 MB (26 content)  |
+| `hentai2read`   | [![Hentai2read download](https://github.com/sinkaroid/tomoe/workflows/hentai2read/badge.svg)](https://github.com/sinkaroid/tomoe/actions/workflows/hentai2read.yml)           | ~0.10 minutes | ~7.78 MB (26 content)  |
+| `simply-hentai` | [![Simply-hentai download](https://github.com/sinkaroid/tomoe/workflows/simplyh/badge.svg)](https://github.com/sinkaroid/tomoe/actions/workflows/simply.yml)   | ~0.29 minutes | ~42.61 MB (19 content) |
+| `asmhentai`     | [![Asmhentai download](https://github.com/sinkaroid/tomoe/workflows/asmhentai/badge.svg)](https://github.com/sinkaroid/tomoe/actions/workflows/asmhentai.yml) | ~0.23 minutes | ~4.96 MB (23 content)  |
 
 ## Features
 - Plenty of sites coverage
@@ -36,7 +35,6 @@ Currently tomoe support the following websites:
 - [hentaifox.com](https://hentaifox.com/)
 - [hentai2read.com](https://hentai2read.com/)
 - [simply-hentai.com](https://simply-hentai.com/)
-- [qhentai.net](https://qhentai.net/)
 - [asmhentai.com](https://asmhentai.com/)
 
 ## Dependencies
@@ -74,15 +72,14 @@ After that, you could see the download results or throw you an error if somethin
 
 Here are all the options it supports.
 
-| **Argument**               | **Description**             | **Example**                                                                                         |
-|----------------------------|-----------------------------|-----------------------------------------------------------------------------------------------------|
-| --nhentai, int             | download from nhentai       | [`tomoe --nhentai 255369`](https://nhentai.net/g/255369/)                                           |
-| --pururin, int             | download from pururin       | [`tomoe --pururin 47226`](https://pururin.to/gallery/47226/crot-sampe-lumpuh)                       |
-| --hentaifox, int           | download from hentaifox     | [`tomoe --hentaifox 59026`](https://hentaifox.com/gallery/59026/)                                   |
-| --hentai2read, str chapter | download from hentai2read   | [`tomoe --hentai2read chaldea_life 1`](https://hentai2read.com/chaldea_life/)                       |
-| --simply, str              | download from simply-hentai | [`tomoe --simply "fate-grand-order/perros"`](https://www.simply-hentai.com/fate-grand-order/perros) |
-| --qhentai, str             | download from qhentai       | [`tomoe --qhentai "eight-star-sand"`](https://qhentai.net/eight-star-sand/)                         |
-| --asmhentai, int           | download from asmhentai     | [`tomoe --asmhentai 311851`](https://asmhentai.com/g/311851/)                                       |
+| **Argument**               | **Description**             | **Example**                                                                                                                                                         |
+| -------------------------- | --------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| --nhentai, int             | download from nhentai       | [`tomoe --nhentai 255369`](https://nhentai.net/g/255369/)                                                                                                           |
+| --pururin, int             | download from pururin       | [`tomoe --pururin 47226`](https://pururin.to/gallery/47226/crot-sampe-lumpuh)                                                                                       |
+| --hentaifox, int           | download from hentaifox     | [`tomoe --hentaifox 59026`](https://hentaifox.com/gallery/59026/)                                                                                                   |
+| --hentai2read, str chapter | download from hentai2read   | [`tomoe --hentai2read chaldea_life 1`](https://hentai2read.com/chaldea_life/)                                                                                       |
+| --simply, str              | download from simply-hentai | [`tomoe --simply "fate-grand-order/fgo-no-ashibon-fgo-foot-book/all-pages"`](https://www.simply-hentai.com/fate-grand-order/fgo-no-ashibon-fgo-foot-book/all-pages) |
+| --asmhentai, int           | download from asmhentai     | [`tomoe --asmhentai 311851`](https://asmhentai.com/g/311851/)                                                                                                       |
 
 ## Todo
 
