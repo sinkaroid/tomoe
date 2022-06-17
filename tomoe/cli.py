@@ -1,10 +1,11 @@
 import asyncio
+import sys
+import os
 from tomoe.pururin import get_pur
 from tomoe.nhentai import get_nh
 from tomoe.simplyh import get_sim
 from tomoe.hentaifox import get_hfox
 from tomoe.hentai2read import get_h2r
-from tomoe.qhentai import get_qh
 from tomoe.asmhentai import get_asm
 from tomoe.utils.misc import choose, need_args
 
@@ -17,7 +18,6 @@ class Tomoe:
         Simplyhentai: str = choose().simply,
         Haentaifox: str = choose().hentaifox,
         Hentai2read: str = choose().hentai2read,
-        Qhentai: str = choose().qhentai,
         Asmhentai: str = choose().asmhentai,
     ):
 
@@ -26,7 +26,6 @@ class Tomoe:
         self.simply = Simplyhentai
         self.hentaifox = Haentaifox
         self.hentai2read = Hentai2read
-        self.qhentai = Qhentai
         self.asmhentai = Asmhentai
 
 
@@ -49,9 +48,6 @@ def main():
     async def main_hentai2read():
         await asyncio.gather(get_h2r(Api.hentai2read))
 
-    async def main_qhentai():
-        await asyncio.gather(get_qh(Api.qhentai))
-
     async def main_asmhentai():
         await asyncio.gather(get_asm(Api.asmhentai))
 
@@ -70,9 +66,6 @@ def main():
     elif Api.hentai2read is not None:
         asyncio.run(main_hentai2read())
 
-    elif Api.qhentai is not None:
-        asyncio.run(main_qhentai())
-
     elif Api.asmhentai is not None:
         asyncio.run(main_asmhentai())
 
@@ -81,4 +74,11 @@ def main():
 
 
 if __name__ == "__main__":
-    main()
+    try:
+        main()
+    except KeyboardInterrupt:
+        print("Interrupted")
+        try:
+            sys.exit(0)
+        except SystemExit:
+            os._exit(0)
