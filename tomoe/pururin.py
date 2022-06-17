@@ -10,24 +10,34 @@ from .utils.misc import (
     convert_html_to_pdf,
     project,
     get_size_folder,
+    log_data,
+    log_file,
+    log_final,
 )
 from inputimeout import inputimeout, TimeoutOccurred
 
 pururin = janda.Pururin()
+t: str = "tomoe.html"
 
 
 async def get_pur(id: int = choose().pururin):
     initial = time.time()
     data = await pururin.get(id)
     parser = janda.resolve(data)
-    title = parser["title"]
-    title = re.sub(r"[^\w\s]", "", title)
-    print(f"Title: {title}")
 
-    img = parser["images"]
-    number = parser["id"]
-    print(f"Total: {len(img)}")
-    print(f'Tags: {parser["tags"]}')
+    title = re.sub(r"[^\w\s]", "", parser["data"]["title"])
+    img = parser["data"]["image"]
+    number = parser["data"]["id"]
+    tags = parser["data"]["tags"]
+    tags = [tag for tag in tags]
+    to_tags = ", ".join(tags)
+
+    log_data("TITLE", title)
+    log_data("TAGS", to_tags)
+    log_data("ID", number)
+    log_data("SOURCE", parser["source"])
+    log_data("TOTAL", f"{parser['data']['total']} pages")
+
     neat_dir = f"{split_name(__file__)}-{number}-{title}"
     neat_dir = re.sub("[^A-Za-z0-9-]+", " ", neat_dir)
 
@@ -54,20 +64,22 @@ async def get_pur(id: int = choose().pururin):
             f.write(r.content)
 
             if os.path.exists(neat_dir + "/" + img_name):
-                print(
-                    f'Successfully downloaded {img_name} | {get_size(neat_dir + "/" + img_name)} MB | took {time.time() - start:.2f} seconds'
+                log_file(
+                    img_name,
+                    get_size(neat_dir + "/" + img_name),
+                    f"{time.time() - start:.2f}",
                 )
 
             if len(img) == len(os.listdir(neat_dir)):
 
-                print(
-                    f"Successfully downloaded all images taken {(time.time() - initial) / 60:.2f} minutes with total size {get_size_folder(neat_dir)} MB"
+                log_final(
+                    f"{(time.time() - initial) / 60:.2f}", get_size_folder(neat_dir)
                 )
                 print(f"Directory: {os.path.abspath(neat_dir)}")
 
-                with open(neat_dir + "/tomoe.html", "x", encoding="utf-8") as f:
+                with open(neat_dir + "/" + t, "x", encoding="utf-8") as f:
                     f.write("<html><center><body>")
-                    f.write(f"<h1>{parser['id']}</h1>")
+                    f.write(f"<h1>{parser['data']['id']}</h1>")
 
                     for i in img:
                         file = i.rsplit("/", 1)[-1]
@@ -86,8 +98,8 @@ async def get_pur(id: int = choose().pururin):
 
                     if to_pdf == "y":
                         try:
-                            source = open(f"{neat_dir}/tomoe.html")
-                            output = f"{neat_dir}/{parser['id']}.pdf"
+                            source = open(f"{neat_dir}/{t}")
+                            output = f"{neat_dir}/{parser['data']['id']}.pdf"
                             filepdf = output.rsplit("/", 1)[-1]
 
                             convert_html_to_pdf(source, output)
@@ -100,15 +112,15 @@ async def get_pur(id: int = choose().pururin):
 
                     elif to_pdf == "n":
                         print("Okay")
-                        os.remove(neat_dir + "/tomoe.html")
+                        os.remove(neat_dir + "/" + t)
                         return
 
                     else:
                         print("Invalid input")
-                        os.remove(neat_dir + "/tomoe.html")
+                        os.remove(neat_dir + "/" + t)
                         return
 
                 except TimeoutOccurred:
                     print("Timeout occurred")
-                    os.remove(neat_dir + "/tomoe.html")
+                    os.remove(neat_dir + "/" + t)
                     exit()

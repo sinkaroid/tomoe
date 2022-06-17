@@ -10,10 +10,14 @@ from .utils.misc import (
     convert_html_to_pdf,
     project,
     get_size_folder,
+    log_data,
+    log_file,
+    log_final,
 )
 from inputimeout import inputimeout, TimeoutOccurred
 
 nh = janda.Nhentai()
+t: str = "tomoe.html"
 
 
 async def get_nh(id: int = choose().nhentai):
@@ -21,17 +25,18 @@ async def get_nh(id: int = choose().nhentai):
     data = await nh.get(id)
     parser = janda.resolve(data)
 
-    title = parser["details"]["title"]["pretty"]
-    title = re.sub(r"[^\w\s]", "", title)
-    number = parser["details"]["id"]
-    print(f"Title: {title}")
-
-    img = parser["image_urls"]
-    print(f"Total: {len(img)}")
-
-    tags = parser["tags"]
+    title = re.sub(r"[^\w\s]", "", parser["data"]["title"])
+    img = parser["data"]["image"]
+    number = parser["data"]["id"]
+    tags = parser["data"]["tags"]
     tags = [tag for tag in tags]
-    print(f"Tags: {tags}")
+    to_tags = ", ".join(tags)
+
+    log_data("TITLE", title)
+    log_data("TAGS", to_tags)
+    log_data("ID", number)
+    log_data("SOURCE", parser["source"])
+    log_data("TOTAL", f"{parser['data']['total']} pages")
 
     neat_dir = f"{split_name(__file__)}-{number}-{title}"
     neat_dir = re.sub("[^A-Za-z0-9-]+", " ", neat_dir)
@@ -58,17 +63,20 @@ async def get_nh(id: int = choose().nhentai):
             f.write(r.content)
 
             if os.path.exists(neat_dir + "/" + img_name):
-                print(
-                    f'Successfully downloaded {img_name} | {get_size(neat_dir + "/" + img_name)} MB | took {time.time() - start:.2f} seconds'
+                log_file(
+                    img_name,
+                    get_size(neat_dir + "/" + img_name),
+                    f"{time.time() - start:.2f}",
                 )
 
             if len(img) == len(os.listdir(neat_dir)):
-                print(
-                    f"Successfully downloaded all images taken {(time.time() - initial) / 60:.2f} minutes with total size {get_size_folder(neat_dir)} MB"
+                log_final(
+                    f"{(time.time() - initial) / 60:.2f}", get_size_folder(neat_dir)
                 )
-                with open(neat_dir + "/tomoe.html", "x", encoding="utf-8") as f:
+
+                with open(neat_dir + "/" + t, "x", encoding="utf-8") as f:
                     f.write("<html><center><body>")
-                    f.write(f"<h1>{parser['details']['id']}</h1>")
+                    f.write(f"<h1>{parser['data']['id']}</h1>")
 
                     for i in img:
                         file = i.rsplit("/", 1)[-1]
@@ -89,8 +97,8 @@ async def get_nh(id: int = choose().nhentai):
 
                     if to_pdf == "y":
                         try:
-                            source = open(f"{neat_dir}/tomoe.html")
-                            output = f"{neat_dir}/{parser['details']['id']}.pdf"
+                            source = open(f"{neat_dir}/{t}")
+                            output = f"{neat_dir}/{parser['data']['id']}.pdf"
                             filepdf = output.rsplit("/", 1)[-1]
 
                             convert_html_to_pdf(source, output)
@@ -103,15 +111,15 @@ async def get_nh(id: int = choose().nhentai):
 
                     elif to_pdf == "n":
                         print("Okay")
-                        os.remove(neat_dir + "/tomoe.html")
+                        os.remove(neat_dir + "/" + t)
                         return
 
                     else:
                         print("Invalid input")
-                        os.remove(neat_dir + "/tomoe.html")
+                        os.remove(neat_dir + "/" + t)
                         return
 
                 except TimeoutOccurred:
                     print("Timeout occurred")
-                    os.remove(neat_dir + "/tomoe.html")
+                    os.remove(neat_dir + "/" + t)
                     exit()

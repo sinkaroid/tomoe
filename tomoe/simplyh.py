@@ -11,10 +11,14 @@ from .utils.misc import (
     project,
     get_size_folder,
     nums,
+    log_data,
+    log_file,
+    log_final,
 )
 from inputimeout import inputimeout, TimeoutOccurred
 
 simply = janda.SimplyHentai()
+t: str = "tomoe.html"
 
 
 async def get_sim(id: str = choose().simply):
@@ -22,23 +26,25 @@ async def get_sim(id: str = choose().simply):
     data = await simply.get(id)
     parser = janda.resolve(data)
 
-    title = parser["title"]
-    title = re.sub(r"[^\w\s]", "", title)
-    print(f"Title: {title}")
-
-    img = parser["image"]
-    print(f"Total image: {len(img)}")
-
-    tags = parser["tags"]
+    title = re.sub(r"[^\w\s]", "", parser["data"]["title"])
+    img = parser["data"]["image"]
+    number = parser["data"]["id"]
+    tags = parser["data"]["tags"]
     tags = [tag for tag in tags]
-    print(f"Tags: {tags}")
+    to_tags = ", ".join(tags)
+
+    log_data("TITLE", title)
+    log_data("TAGS", to_tags)
+    log_data("ID", number)
+    log_data("SOURCE", parser["source"])
+    log_data("TOTAL", f"{parser['data']['total']} pages")
 
     neat_dir = f"{split_name(__file__)}-{title}"
     neat_dir = re.sub("[^A-Za-z0-9-]+", " ", neat_dir)
 
     neat_dir = re.sub(r"\s+", "_", neat_dir)
 
-    set_name = parser["id"]
+    set_name = parser["data"]["id"]
     set_name = set_name.split("/")[-1]
 
     if not os.path.exists(neat_dir):
@@ -59,18 +65,17 @@ async def get_sim(id: str = choose().simply):
 
             if os.path.exists(f"{neat_dir}/{i+1}.jpg"):
                 file = get_size(f"{neat_dir}/{i+1}.jpg")
-                print(
-                    f"Successfully downloaded {i+1} | {file} MB | took {time.time() - start:.2f} seconds"
-                )
+                log_file(i + 1, file, f"{time.time() - start:.2f}")
+                ## print(f"Successfully downloaded {i+1} | {file} MB | took {time.time() - start:.2f} seconds")
 
             if len(img) == len(os.listdir(neat_dir)):
-
-                print(
-                    f"Successfully downloaded all images taken {(time.time() - initial) / 60:.2f} minutes with total size {get_size_folder(neat_dir)} MB"
+                log_final(
+                    f"{(time.time() - initial) / 60:.2f}", get_size_folder(neat_dir)
                 )
+
                 print(f"Directory: {os.path.abspath(neat_dir)}")
 
-                with open(neat_dir + "/tomoe.html", "x", encoding="utf-8") as f:
+                with open(neat_dir + "/" + t, "x", encoding="utf-8") as f:
                     f.write("<html><center><body>")
                     f.write(f"<h1>{neat_dir}</h1>")
 
@@ -90,7 +95,7 @@ async def get_sim(id: str = choose().simply):
 
                     if to_pdf == "y":
                         try:
-                            source = open(f"{neat_dir}/tomoe.html")
+                            source = open(f"{neat_dir}/{t}")
                             output = f"{neat_dir}/{set_name}.pdf"
                             filepdf = output.rsplit("/", 1)[-1]
 
@@ -104,15 +109,15 @@ async def get_sim(id: str = choose().simply):
 
                     elif to_pdf == "n":
                         print("Okay")
-                        os.remove(neat_dir + "/tomoe.html")
+                        os.remove(neat_dir + "/" + t)
                         return
 
                     else:
                         print("Invalid input")
-                        os.remove(neat_dir + "/tomoe.html")
+                        os.remove(neat_dir + "/" + t)
                         return
 
                 except TimeoutOccurred:
                     print("Timeout occurred")
-                    os.remove(neat_dir + "/tomoe.html")
+                    os.remove(neat_dir + "/" + t)
                     exit()
