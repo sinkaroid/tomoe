@@ -1,3 +1,4 @@
+import asyncio
 import janda
 import requests
 import os
@@ -20,7 +21,13 @@ pururin = janda.Pururin()
 t: str = "tomoe.html"
 
 
-async def get_pur(id: int = choose().pururin):
+async def get_pur(ids=choose().pururin):
+    for id in ids:
+        await asyncio.gather(process_pururin(id))
+        print(f"Complete process {id}")
+
+
+async def process_pururin(id: int):
     initial = time.time()
     data = await pururin.get(id)
     parser = janda.resolve(data)
@@ -121,6 +128,4 @@ async def get_pur(id: int = choose().pururin):
                         return
 
                 except TimeoutOccurred:
-                    print("Timeout occurred")
-                    os.remove(neat_dir + "/" + t)
-                    exit()
+                    print(f"Timeout occurred, not rendering pdf {id}")

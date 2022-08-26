@@ -1,3 +1,4 @@
+import asyncio
 import janda
 import requests
 import os
@@ -16,13 +17,19 @@ from .utils.misc import (
 )
 from inputimeout import inputimeout, TimeoutOccurred
 
-hfox = janda.Asmhentai()
+asmh = janda.Asmhentai()
 t: str = "tomoe.html"
 
 
-async def get_asm(id: int = choose().asmhentai):
+async def get_asm(ids=choose().asmhentai):
+    for id in ids:
+        await asyncio.gather(process_asmhentai(id))
+        print(f"Complete process {id}")
+
+
+async def process_asmhentai(id: int):
     initial = time.time()
-    data = await hfox.get(id)
+    data = await asmh.get(id)
     parser = janda.resolve(data)
 
     title = re.sub(r"[^\w\s]", "", parser["data"]["title"])
@@ -143,6 +150,4 @@ async def get_asm(id: int = choose().asmhentai):
                         return
 
                 except TimeoutOccurred:
-                    print("Timeout occurred")
-                    os.remove(neat_dir + "/" + t)
-                    exit()
+                    print(f"Timeout occurred, not rendering pdf {id}")

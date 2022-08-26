@@ -1,3 +1,4 @@
+import asyncio
 import janda
 import requests
 import os
@@ -19,20 +20,17 @@ from inputimeout import inputimeout, TimeoutOccurred
 h2r = janda.Hentai2read()
 t: str = "tomoe.html"
 
-value = choose().hentai2read
-if value is None:
-    par1 = ""
-    par2 = ""
 
-else:
-    value.sort()
-    par1 = value[1]
-    par2 = value[0]
+async def get_h2r(ids=choose().hentai2read):
+    for id in ids:
+        par = id.split(":")
+        await asyncio.gather(process_h2r(par[0], par[1]))
+        print(f"Complete process {par[0]}, chapter {par[1]}")
 
 
-async def get_h2r(id: str = par1, chapter: int = par2):
+async def process_h2r(id: str, chapter: int):
     initial = time.time()
-    data = await h2r.get(id[0], chapter)
+    data = await h2r.get(id, chapter)
     parser = janda.resolve(data)
 
     title = re.sub(r"[^\w\s]", "", parser["data"]["title"])
@@ -123,6 +121,4 @@ async def get_h2r(id: str = par1, chapter: int = par2):
                         return
 
                 except TimeoutOccurred:
-                    print("Timeout occurred")
-                    os.remove(neat_dir + "/" + t)
-                    exit()
+                    print(f"Timeout occurred, not rendering pdf {id}, chapter: {chapter}")

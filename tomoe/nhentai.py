@@ -1,3 +1,4 @@
+import asyncio
 import janda
 import requests
 import os
@@ -20,7 +21,13 @@ nh = janda.Nhentai()
 t: str = "tomoe.html"
 
 
-async def get_nh(id: int = choose().nhentai):
+async def get_nh(ids=choose().nhentai):
+    for id in ids:
+        await asyncio.gather(process_nhentai(id))
+        print(f"Complete process {id}")
+
+
+async def process_nhentai(id: int):
     initial = time.time()
     data = await nh.get(id)
     parser = janda.resolve(data)
@@ -120,6 +127,4 @@ async def get_nh(id: int = choose().nhentai):
                         return
 
                 except TimeoutOccurred:
-                    print("Timeout occurred")
-                    os.remove(neat_dir + "/" + t)
-                    exit()
+                    print(f"Timeout occurred, not rendering pdf {id}")
