@@ -1,3 +1,4 @@
+import asyncio
 import janda
 import requests
 import os
@@ -21,7 +22,13 @@ simply = janda.SimplyHentai()
 t: str = "tomoe.html"
 
 
-async def get_sim(id: str = choose().simply):
+async def get_sim(ids=choose().simply):
+    for id in ids:
+        await asyncio.gather(process_simplyh(id))
+        print(f"Complete process {id}")
+
+
+async def process_simplyh(id: str):
     initial = time.time()
     data = await simply.get(id)
     parser = janda.resolve(data)
@@ -118,6 +125,4 @@ async def get_sim(id: str = choose().simply):
                         return
 
                 except TimeoutOccurred:
-                    print("Timeout occurred")
-                    os.remove(neat_dir + "/" + t)
-                    exit()
+                    print(f"Timeout occurred, not rendering pdf {id}")

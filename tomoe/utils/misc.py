@@ -12,27 +12,22 @@ def choose():
     my_parser = argparse.ArgumentParser()
 
     my_parser.add_argument(
-        "--nhentai", "-nhentai", action="store", metavar=("ID"), type=int
+        "--nhentai", "-nhentai", action="store", nargs='+'
     )
     my_parser.add_argument(
-        "--pururin", "-pururin", action="store", metavar=("ID"), type=int
+        "--pururin", "-pururin", action="store", nargs='+'
     )
     my_parser.add_argument(
-        "--simply", "-simply", action="store", metavar=("PATH_AFTER_WWW"), type=str
+        "--simply", "-simply", action="store", nargs='+'
     )
     my_parser.add_argument(
-        "--hentaifox", "-hentaifox", action="store", metavar=("ID"), type=int
+        "--hentaifox", "-hentaifox", action="store", nargs='+'
     )
     my_parser.add_argument(
-        "--hentai2read",
-        "-hentai2read",
-        nargs=2,
-        action="store",
-        metavar=("PATH", "CHAPTER"),
-        type=str,
+        "--hentai2read", "-hentai2read", action="store", nargs='+',
     )
     my_parser.add_argument(
-        "--asmhentai", "-asmhentai", action="store", metavar=("ID"), type=int
+        "--asmhentai", "-asmhentai", action="store", nargs='+'
     )
 
     args = my_parser.parse_args()

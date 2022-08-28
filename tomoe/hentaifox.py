@@ -1,3 +1,4 @@
+import asyncio
 import janda
 import requests
 import os
@@ -20,7 +21,13 @@ hfox = janda.Hentaifox()
 t: str = "tomoe.html"
 
 
-async def get_hfox(id: int = choose().hentaifox):
+async def get_hfox(ids=choose().hentaifox):
+    for id in ids:
+        await asyncio.gather(process_hentaifox(id))
+        print(f"Complete process {id}")
+
+
+async def process_hentaifox(id: int):
     initial = time.time()
     data = await hfox.get(id)
     parser = janda.resolve(data)
@@ -143,6 +150,4 @@ async def get_hfox(id: int = choose().hentaifox):
                         return
 
                 except TimeoutOccurred:
-                    print("Timeout occurred")
-                    os.remove(neat_dir + "/" + t)
-                    exit()
+                    print(f"Timeout occurred, not rendering pdf {id}")
