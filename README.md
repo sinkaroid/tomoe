@@ -1,31 +1,58 @@
-# Tomoe [![Testing](https://github.com/sinkaroid/tomoe/actions/workflows/api.yml/badge.svg)](https://github.com/sinkaroid/tomoe/actions/workflows/api.yml) [![Maintainability](https://api.codeclimate.com/v1/badges/a729e38da1fe1ee520b1/maintainability)](https://codeclimate.com/github/sinkaroid/tomoe/maintainability)
+<div align="center">
+<a href="https://github.com/sinkaroid/tomoe/wiki"><img width="500" src="https://cdn.discordapp.com/attachments/952117487166705747/1013588505919762443/tomoe_.png" alt="tomoe"></a>
 
-<a href="https://github.com/sinkaroid/tomoe/wiki"><img align="right" src="https://cdn.discordapp.com/attachments/952117487166705747/954724094379708436/s.png" width="180"></a>
+<h4 align="center">An exalted doujinshi downloader with ease.</h4>
+<p align="center">
+	<a href="https://github.com/sinkaroid/tomoe/actions/workflows/api.yml"><img src="https://github.com/sinkaroid/tomoe/actions/workflows/api.yml/badge.svg"></a>
+	<a href="https://codeclimate.com/github/sinkaroid/tomoe/maintainability"><img src="https://api.codeclimate.com/v1/badges/a729e38da1fe1ee520b1/maintainability" /></a>
+</p>
 
-**A doujinshi downloader with ease**
+Tomoe is a CLI tool for downloading doujinshi from various doujinboards. It's also has built-in modular bulk downloads, and has auto render into PDF (**Portable Document Format**) for it's utility, hopefully will be reusable.  
 
-Tomoe is a CLI tool for downloading doujinshi from various doujinboards. It's also has built-in auto render into PDF for it's utility, hopefully will be reusable.
+<a href="#options">🚀 Commands</a> •
+<a href="https://github.com/sinkaroid/tomoe/wiki">Documentation</a> •
+<a href="https://github.com/sinkaroid/tomoe/issues/new/choose">Report Issues</a>
+</div>
 
-> 🚀 [Commands](#options) • [Documentation](https://github.com/sinkaroid/tomoe/wiki) • [Report Issues](https://github.com/sinkaroid/tomoe/issues/new/choose)
+- [Tomoe](#)
+  - [Features](#features)
+    - [Tomoe vs. the doujinboards](#tomoe-vs-the-doujinboards)
+    - [Site support](#site-support)
+  - [Installation](#installation)
+    - [Prerequisites](#prerequisites)
+  - [Documentation](https://github.com/sinkaroid/tomoe/wiki)
+    - [Command usage](#command-usage)
+    - [Quick examples](#quick-example)
+    - [Options](#options)
+    - [Bulk download](#bulk-download)
+    - [Bulk download using nested list](#bulk-download-using-nested-list)
+  - [Pronounciation](#pronounciation)
+  - [Acknowledgements](./CLOSING_REMARKS.md)
+  - [Legal](#legal)
+  - [EoF](#eof)
+  
+---
 
 ## Tomoe vs. the doujinboards
+Tomoe consumes [Jandapress](https://github.com/sinkaroid/jandapress) and uses [janda](https://pypi.org/project/janda/) for the doujin Python library.  
 
-Some tests has high resolve time and rendering a bit longer,  
-because some source does not providing real extension of a images, tomoe should check and guessing it's format
+**Features availability** Speed or perfomace may not accurate because internet connection or API response. Some tests has high resolve time and rendering a bit longer, because some source does not providing real extension of a images, tomoe should check and guessing it's format.
 
-| Site            | Status                                                                                                                                                              | Average time  | Downloaded contents    |
-| --------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------- | ---------------------- |
-| `nhentai`       | [![Nhentai download](https://github.com/sinkaroid/tomoe/workflows/nhentai/badge.svg)](https://github.com/sinkaroid/tomoe/actions/workflows/nhentai.yml)             | ~0.52 minutes | ~10.39 MB (26 content) |
-| `pururin`       | [![Pururin download](https://github.com/sinkaroid/tomoe/workflows/pururin/badge.svg)](https://github.com/sinkaroid/tomoe/actions/workflows/pururin.yml)             | ~0.63 minutes | ~15.55 MB (20 content) |
-| `hentaifox`     | [![Hentaifox download](https://github.com/sinkaroid/tomoe/workflows/hentaifox/badge.svg)](https://github.com/sinkaroid/tomoe/actions/workflows/hentaifox.yml)       | ~0.33 minutes | ~8.18 MB (26 content)  |
-| `hentai2read`   | [![Hentai2read download](https://github.com/sinkaroid/tomoe/workflows/hentai2read/badge.svg)](https://github.com/sinkaroid/tomoe/actions/workflows/hentai2read.yml) | ~0.10 minutes | ~7.78 MB (26 content)  |
-| `simply-hentai` | [![Simply-hentai download](https://github.com/sinkaroid/tomoe/workflows/simplyh/badge.svg)](https://github.com/sinkaroid/tomoe/actions/workflows/simply.yml)        | ~0.29 minutes | ~42.61 MB (19 content) |
-| `asmhentai`     | [![Asmhentai download](https://github.com/sinkaroid/tomoe/workflows/asmhentai/badge.svg)](https://github.com/sinkaroid/tomoe/actions/workflows/asmhentai.yml)       | ~0.23 minutes | ~4.96 MB (23 content)  |
+| Site            | Status                                                                                                                                                              | Bulk download | Average response  | Downloaded |
+| --------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------ | ------------- | ---------------------- |
+| `nhentai`       | [![Nhentai download](https://github.com/sinkaroid/tomoe/workflows/nhentai/badge.svg)](https://github.com/sinkaroid/tomoe/actions/workflows/nhentai.yml)             | `Yes` | ~0.52 minutes | ~10.39 MB (26 images) |
+| `pururin`       | [![Pururin download](https://github.com/sinkaroid/tomoe/workflows/pururin/badge.svg)](https://github.com/sinkaroid/tomoe/actions/workflows/pururin.yml)             | `Yes` |~0.63 minutes | ~15.55 MB (20 images) |
+| `hentaifox`     | [![Hentaifox download](https://github.com/sinkaroid/tomoe/workflows/hentaifox/badge.svg)](https://github.com/sinkaroid/tomoe/actions/workflows/hentaifox.yml)       | `Yes` |~0.33 minutes | ~8.18 MB (26 images)  |
+| `hentai2read`   | [![Hentai2read download](https://github.com/sinkaroid/tomoe/workflows/hentai2read/badge.svg)](https://github.com/sinkaroid/tomoe/actions/workflows/hentai2read.yml) | `Yes` |~0.10 minutes | ~7.78 MB (26 images)  |
+| `simply-hentai` | [![Simply-hentai download](https://github.com/sinkaroid/tomoe/workflows/simplyh/badge.svg)](https://github.com/sinkaroid/tomoe/actions/workflows/simply.yml)        | `Yes` |~0.29 minutes | ~42.61 MB (19 images) |
+| `asmhentai`     | [![Asmhentai download](https://github.com/sinkaroid/tomoe/workflows/asmhentai/badge.svg)](https://github.com/sinkaroid/tomoe/actions/workflows/asmhentai.yml)       | `Yes` |~0.23 minutes | ~4.96 MB (23 images)  |
+
 
 ## Features
 
 - Plenty of sites coverage
 - Built-in auto render into PDF
+- Modular bulk downloads
 - Minimalist dependencies
 - Download with ease, doesn't require you a lot of arguments
 
@@ -42,10 +69,6 @@ Currently tomoe support the following websites:
 - [simply-hentai.com](https://simply-hentai.com/)
 - [asmhentai.com](https://asmhentai.com/)
 
-## Dependencies
-
-tomoe depends on [requests](https://requests.readthedocs.io/en/master/) + [asyncio](https://docs.python.org/3/library/asyncio.html),
-and uses [janda](https://pypi.org/project/janda/) for it's doujin library client for Python.
 
 ## Prerequisites
 
@@ -55,19 +78,10 @@ and uses [janda](https://pypi.org/project/janda/) for it's doujin library client
 
 ## Installation
 
-It's fairly simple to install tomoe
+`pip install tomoe` / `pipenv install tomoe`  
 
-### 🚀from PyPI
+- Or manual build by cloning the repository and running `python setup.py install`
 
-`pip install tomoe`
-
-### 🚀from pipenv
-
-`pipenv install tomoe`
-
-### 🚀from this repository
-
-Clone this repository, and do `python setup.py install`
 
 ## Command usage
 
@@ -75,24 +89,25 @@ Clone this repository, and do `python setup.py install`
 
 ## Quick example
 
-    $ tomoe --nhentai 255369
+`tomoe --nhentai 177013`
 
 After that, you could see the download results or throw you an error if something went wrong.
 
 ## Options
 
-Here are all the options it supports.
+It's fairly simple to use tomoe
 
 | **Argument**                      | **Description**             | **Example**                                                                                                                                                         |
 | --------------------------------- | --------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| --nhentai, int                    | download from nhentai       | [`tomoe --nhentai 255369`](https://nhentai.net/g/255369/)                                                                                                           |
-| --pururin, int                    | download from pururin       | [`tomoe --pururin 47226`](https://pururin.to/gallery/47226/crot-sampe-lumpuh)                                                                                       |
-| --hentaifox, int                  | download from hentaifox     | [`tomoe --hentaifox 59026`](https://hentaifox.com/gallery/59026/)                                                                                                   |
-| --hentai2read, str chapter:number | download from hentai2read   | [`tomoe --hentai2read chaldea_life:1`](https://hentai2read.com/chaldea_life/)                                                                                       |
-| --simply, str                     | download from simply-hentai | [`tomoe --simply "fate-grand-order/fgo-no-ashibon-fgo-foot-book/all-pages"`](https://www.simply-hentai.com/fate-grand-order/fgo-no-ashibon-fgo-foot-book/all-pages) |
-| --asmhentai, int                  | download from asmhentai     | [`tomoe --asmhentai 311851`](https://asmhentai.com/g/311851/)                                                                                                       |
+| --nhentai, int                    | nhentai       | [`tomoe --nhentai 255369`](https://nhentai.net/g/255369/)                                                                                                           |
+| --pururin, int                    | pururin       | [`tomoe --pururin 47226`](https://pururin.to/gallery/47226/crot-sampe-lumpuh)                                                                                       |
+| --hentaifox, int                  | hentaifox     | [`tomoe --hentaifox 59026`](https://hentaifox.com/gallery/59026/)                                                                                                   |
+| --hentai2read, str chapter:number | hentai2read   | [`tomoe --hentai2read chaldea_life:1`](https://hentai2read.com/chaldea_life/)                                                                                       |
+| --simply, str                     | simply-hentai | [`tomoe --simply "fate-grand-order/fgo-no-ashibon-fgo-foot-book/all-pages"`](https://www.simply-hentai.com/fate-grand-order/fgo-no-ashibon-fgo-foot-book/all-pages) |
+| --asmhentai, int                  | asmhentai     | [`tomoe --asmhentai 311851`](https://asmhentai.com/g/311851/)                                                                                                       |
 
-### Bulk Download
+## Bulk download
+You can passing multiple id to requests bulk download
 
 | **Sites**   | **Description**                 | **Example**                                                                                                                |
 | ----------- | ------------------------------- | -------------------------------------------------------------------------------------------------------------------------- |
@@ -103,22 +118,63 @@ Here are all the options it supports.
 | simply      | place multiple chapter          | `tomoe --simply "fate-grand-order/fgo-no-ashibon-fgo-foot-book/all-pages" "original-work/kanchou-manga-cffc37a/all-pages"` |
 | asmhentai   | place multiple id               | `tomoe --asmhentai 311851 210135 309068`                                                                                   |
 
-## Todo
+## Bulk download using nested list
+`tomoe --bulk doujin.json`  
 
-- [ ] Support for bulk download
-- [x] Improve image viewer
-- [x] Add render to another format support
-- [ ] Add custom cookie requests
+Since this tool covers plenty of website, If You need to download from each multiple different website You can make bulk download with arbitrary methods, Meant you can mix and wrap the whole book id into nested array in a JSON file. Read more about [Understanding Nested Arrays.](https://javascript.plainenglish.io/understanding-the-nested-arrays-fbf3ab13c2b4#:~:text=An%20array%20is%20an%20ordered,the%20element%20of%20an%20array)
+
+Create `doujin.json` in the same directory You want to run tomoe and follow this structure:  
+**Note** *You should not change the "book" property*
+```js
+{
+    "book": [
+        {
+            "nhentai": 177013
+        },
+        {
+            "nhentai": 255369
+        },
+        {
+            "pururin": 47226
+        },
+        {
+            "pururin": 64351
+        },
+        {
+            "hentaifox": 59026
+        },
+        {
+            "hentaifox": 61805
+        },
+        {
+            "asmhentai": 311851
+        },
+        {
+            "asmhentai": 210135
+        },
+        {
+            "hentai2read": "chaldea_life:1"
+        },
+        {
+            "simply": "fate-grand-order/fgo-no-ashibon-fgo-foot-book/all-pages"
+        }
+    ]
+}
+```
+
+Then tells tomoe to resolve all the book id from the JSON file.
+`tomoe --bulk doujin.json`
 
 ## Legal
 
 This tool can be freely copied, modified, altered, distributed without any attribution whatsoever. However, if you feel
-like this tool deserves an attribution, mention it. It won't hurt anybody
+like this tool deserves an attribution, mention it. It won't hurt anybody.
+> Licence: WTF.
 
 ## Pronounciation
 
-[`ja_JP`](https://www.localeplanet.com/java/ja-JP/index.html) • **to-moe** — that resembles a comma or the usual form of a [magatama](#tomoe).
+[`ja_JP`](https://www.localeplanet.com/java/ja-JP/index.html) • **to-moe** — commonly translated as "comma", is a comma-like swirl symbol used in Japanese mon. It closely resembles the usual form of a magatama.
 
 ## EoF
 
-All books from those doujinboards are definitely ilegal from original authors.
+All books from those third-party doujinboards are definitely ilegal from original authors. Support the authors by buying the original book.
