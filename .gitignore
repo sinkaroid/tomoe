@@ -110,4 +110,5 @@ setup.cfg
 .idea
 .vscode
 .gitchangelog.rc
+data.json
 
