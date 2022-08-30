@@ -29,6 +29,9 @@ def choose():
     my_parser.add_argument(
         "--asmhentai", "-asmhentai", action="store", nargs='+'
     )
+    my_parser.add_argument(
+        "--bulk", "-bulk", action="store", metavar=("BULK"), type=str
+    )
 
     args = my_parser.parse_args()
     return args
@@ -90,7 +93,7 @@ def get_size_folder(folder):
 
 
 def project():
-    return '<p><b><h1><a href="https://pypi.org/project/tomoe/">Generated from tomoe: https://pypi.org/project/tomoe</a></b><h1>'
+    return '<p><b><h1>Generated from tomoe: <a href="https://pypi.org/project/tomoe/">pypi.org/project/tomoe</a></b><h1>'
 
 
 def convert_html_to_pdf(source_html, output_filename):
@@ -173,6 +176,19 @@ def log_file(file: str, size: str, took: str):
         Time took
     """
     logging.info(f"Successfully downloaded {file}: {size} MB, took: {took} Seconds")
+
+def log_warn(case: str, note: str):
+    """Logging warning
+
+    Parameters
+    ----------
+    case : str
+        Case of the log
+
+    note : str
+        Note of the log
+    """
+    logging.info(f"{case}: {note}")
 
 
 def log_final(taken: str, total_size: str):
