@@ -21,12 +21,15 @@ simply:
 
 asmhentai:
 	tomoe --asmhentai 311851
+
+bulk:
+	tomoe --bulk doujin.json
 	
 api-mock: # check api if something down
 	python -m unittest test.test_api
 
-upload:
-	bash build.sh
+build:
+	python setup.py sdist && twine upload dist/*
 
 changelog:
 	git-changelog -o CHANGELOG.md -s angular -t angular .
