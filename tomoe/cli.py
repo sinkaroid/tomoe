@@ -1,13 +1,14 @@
 import asyncio
 import sys
 import os
-from tomoe.pururin import get_pur
-from tomoe.nhentai import get_nh
-from tomoe.simplyh import get_sim
-from tomoe.hentaifox import get_hfox
-from tomoe.hentai2read import get_h2r
-from tomoe.asmhentai import get_asm
-from tomoe.utils.misc import choose, need_args
+from tomoe.tomoe.pururin import get_pur
+from tomoe.tomoe.nhentai import get_nh
+from tomoe.tomoe.simplyh import get_sim
+from tomoe.tomoe.hentaifox import get_hfox
+from tomoe.tomoe.hentai2read import get_h2r
+from tomoe.tomoe.asmhentai import get_asm
+from tomoe.tomoe.bulk_download import get_bulk
+from tomoe.tomoe.utils.misc import choose, need_args
 
 
 class Tomoe:
@@ -19,6 +20,7 @@ class Tomoe:
         Haentaifox: str = choose().hentaifox,
         Hentai2read: str = choose().hentai2read,
         Asmhentai: str = choose().asmhentai,
+        Bulk: str = choose().bulk,
     ):
 
         self.pururin = Pururin
@@ -27,6 +29,7 @@ class Tomoe:
         self.hentaifox = Haentaifox
         self.hentai2read = Hentai2read
         self.asmhentai = Asmhentai
+        self.bulk = Bulk
 
 
 Api = Tomoe()
@@ -51,6 +54,9 @@ def main():
     async def main_asmhentai():
         await asyncio.gather(get_asm(Api.asmhentai))
 
+    async def main_bulk():
+        await asyncio.gather(get_bulk(Api.bulk))
+
     if Api.pururin is not None:
         asyncio.run(main_pururin())
 
@@ -68,6 +74,9 @@ def main():
 
     elif Api.asmhentai is not None:
         asyncio.run(main_asmhentai())
+
+    elif Api.bulk is not None:
+        asyncio.run(main_bulk())
 
     else:
         need_args()
