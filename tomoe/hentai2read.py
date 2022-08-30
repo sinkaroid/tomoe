@@ -46,7 +46,7 @@ async def process_h2r(id: str, chapter: int):
     if not os.path.exists(neat_dir):
         os.makedirs(neat_dir)
 
-    if len(img) == len(os.listdir(neat_dir)):
+    if len(img) == len(os.listdir(neat_dir)) or len(img) <= len(os.listdir(neat_dir)):
         print(
             "All images already downloaded! If you're doubt kindly remove this folder and re-download"
         )
