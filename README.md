@@ -105,6 +105,7 @@ It's fairly simple to use tomoe
 | --hentai2read, str chapter:number | hentai2read   | [`tomoe --hentai2read chaldea_life:1`](https://hentai2read.com/chaldea_life/)                                                                                       |
 | --simply, str                     | simply-hentai | [`tomoe --simply "fate-grand-order/fgo-no-ashibon-fgo-foot-book/all-pages"`](https://www.simply-hentai.com/fate-grand-order/fgo-no-ashibon-fgo-foot-book/all-pages) |
 | --asmhentai, int                  | asmhentai     | [`tomoe --asmhentai 311851`](https://asmhentai.com/g/311851/)                                                                                                       |
+| --bulk, str                       | custom bulk download     | [`tomoe --bulk doujin.json`](/doujin.json)                                                                                                       |
 
 ## Bulk download
 You can passing multiple id to requests bulk download
