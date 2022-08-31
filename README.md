@@ -3,7 +3,7 @@
 
 <h4 align="center">An exalted doujinshi downloader with ease.</h4>
 <p align="center">
-	<a href="https://github.com/sinkaroid/tomoe/actions/workflows/api.yml"><img src="https://github.com/sinkaroid/tomoe/actions/workflows/api.yml/badge.svg"></a>
+	<a href="https://github.com/sinkaroid/tomoe/actions/workflows/api.yml"><img src="https://github.com/sinkaroid/tomoe/workflows/modular%20bulk%20download/badge.svg"></a>
 	<a href="https://codeclimate.com/github/sinkaroid/tomoe/maintainability"><img src="https://api.codeclimate.com/v1/badges/a729e38da1fe1ee520b1/maintainability" /></a>
 </p>
 
