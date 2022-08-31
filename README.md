@@ -56,7 +56,7 @@ Tomoe consumes [Jandapress](https://github.com/sinkaroid/jandapress) and uses [j
 - Minimalist dependencies
 - Download with ease, doesn't require you a lot of arguments
 
-<img src="https://cdn.discordapp.com/attachments/952117487166705747/955118232119955466/nh-tomoe.png" width="600" alt="tomoe">
+<img src="https://cdn.discordapp.com/attachments/997107089921028136/1014343478236422185/tomocrot.png" width="600" alt="tomoe">
 
 ## Site support
 
