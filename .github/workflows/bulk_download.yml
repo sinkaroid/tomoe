@@ -1,4 +1,4 @@
-name: bulk with nested list
+name: modular bulk download
 on:
   push:
     branches:
