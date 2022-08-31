@@ -1,14 +1,14 @@
 import asyncio
 import sys
 import os
-from tomoe.tomoe.pururin import get_pur
-from tomoe.tomoe.nhentai import get_nh
-from tomoe.tomoe.simplyh import get_sim
-from tomoe.tomoe.hentaifox import get_hfox
-from tomoe.tomoe.hentai2read import get_h2r
-from tomoe.tomoe.asmhentai import get_asm
-from tomoe.tomoe.bulk_download import get_bulk
-from tomoe.tomoe.utils.misc import choose, need_args
+from tomoe.pururin import get_pur
+from tomoe.nhentai import get_nh
+from tomoe.simplyh import get_sim
+from tomoe.hentaifox import get_hfox
+from tomoe.hentai2read import get_h2r
+from tomoe.asmhentai import get_asm
+from tomoe.bulk_download import get_bulk
+from tomoe.utils.misc import choose, need_args
 
 
 class Tomoe:

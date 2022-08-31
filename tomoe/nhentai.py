@@ -14,6 +14,7 @@ from .utils.misc import (
     log_data,
     log_file,
     log_final,
+    log_warn,
 )
 from inputimeout import inputimeout, TimeoutOccurred
 
@@ -65,7 +66,15 @@ async def process_nhentai(id: int):
         img_url = i
         img_name = img_url.rsplit("/", 1)[-1]
 
-        r = requests.get(img_url)
+        while True:
+            try:
+                r = requests.get(img_url)
+                break
+            except Exception as e:
+                log_warn(e, f"Retrying {img_name} in 3 seconds...")
+                time.sleep(3)
+                continue
+
         with open(neat_dir + "/" + img_name, "wb") as f:
             f.write(r.content)
 

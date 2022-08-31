@@ -11,24 +11,17 @@ logging.basicConfig(format="%(asctime)s - %(message)s", level=logging.INFO)
 def choose():
     my_parser = argparse.ArgumentParser()
 
+    my_parser.add_argument("--nhentai", "-nhentai", action="store", nargs="+")
+    my_parser.add_argument("--pururin", "-pururin", action="store", nargs="+")
+    my_parser.add_argument("--simply", "-simply", action="store", nargs="+")
+    my_parser.add_argument("--hentaifox", "-hentaifox", action="store", nargs="+")
     my_parser.add_argument(
-        "--nhentai", "-nhentai", action="store", nargs='+'
+        "--hentai2read",
+        "-hentai2read",
+        action="store",
+        nargs="+",
     )
-    my_parser.add_argument(
-        "--pururin", "-pururin", action="store", nargs='+'
-    )
-    my_parser.add_argument(
-        "--simply", "-simply", action="store", nargs='+'
-    )
-    my_parser.add_argument(
-        "--hentaifox", "-hentaifox", action="store", nargs='+'
-    )
-    my_parser.add_argument(
-        "--hentai2read", "-hentai2read", action="store", nargs='+',
-    )
-    my_parser.add_argument(
-        "--asmhentai", "-asmhentai", action="store", nargs='+'
-    )
+    my_parser.add_argument("--asmhentai", "-asmhentai", action="store", nargs="+")
     my_parser.add_argument(
         "--bulk", "-bulk", action="store", metavar=("BULK"), type=str
     )
@@ -176,6 +169,7 @@ def log_file(file: str, size: str, took: str):
         Time took
     """
     logging.info(f"Successfully downloaded {file}: {size} MB, took: {took} Seconds")
+
 
 def log_warn(case: str, note: str):
     """Logging warning

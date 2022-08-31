@@ -14,6 +14,7 @@ from .utils.misc import (
     log_data,
     log_file,
     log_final,
+    log_warn,
 )
 from inputimeout import inputimeout, TimeoutOccurred
 
@@ -53,7 +54,7 @@ async def process_pururin(id: int):
     if not os.path.exists(neat_dir):
         os.makedirs(neat_dir)
 
-    if len(img) == len(os.listdir(neat_dir)):
+    if len(img) == len(os.listdir(neat_dir)) or len(img) <= len(os.listdir(neat_dir)):
         print(
             "All images already downloaded! If you're doubt kindly remove this folder and re-download"
         )
@@ -65,7 +66,15 @@ async def process_pururin(id: int):
         img_url = i
         img_name = img_url.rsplit("/", 1)[-1]
 
-        r = requests.get(img_url)
+        while True:
+            try:
+                r = requests.get(img_url)
+                break
+            except Exception as e:
+                log_warn(e, f"Retrying {img_name} in 3 seconds...")
+                time.sleep(3)
+                continue
+
         with open(neat_dir + "/" + img_name, "wb") as f:
 
             f.write(r.content)
@@ -129,3 +138,4 @@ async def process_pururin(id: int):
 
                 except TimeoutOccurred:
                     print(f"Timeout occurred, not rendering pdf {id}")
+                    os.remove(neat_dir + "/" + t)

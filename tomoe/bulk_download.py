@@ -9,19 +9,22 @@ from .asmhentai import process_asmhentai
 from .hentai2read import process_h2r
 from .simplyh import process_simplyh
 
+
 async def get_bulk(book: str = choose().bulk):
     f = open(book)
 
     try:
         data = json.load(f)
     except json.decoder.JSONDecodeError:
-        print("Invalid bulk file, does not follow the nested JSON format.\nGuide: https://github.com/sinkaroid/tomoe#bulk-download-using-nested-list")
+        print(
+            "Invalid bulk file, does not follow the nested JSON format.\nGuide: https://github.com/sinkaroid/tomoe#bulk-download-using-nested-list"
+        )
         return
 
     initial = time.time()
     print(f'Requesting {len(data["book"])} doujinshi..')
-    
-    for i in data['book']:
+
+    for i in data["book"]:
         for key, value in i.items():
             ## print(key, value)
             if key.startswith("pur"):
@@ -41,6 +44,9 @@ async def get_bulk(book: str = choose().bulk):
             else:
                 print("An unexpected property that does not support:", key, value)
                 pass
-            
-    print(f"Bulk download completed, took: {(time.time() - initial) / 60:.2f}" + " minutes")
+
+    print(
+        f"Bulk download completed, took: {(time.time() - initial) / 60:.2f}"
+        + " minutes"
+    )
     f.close()

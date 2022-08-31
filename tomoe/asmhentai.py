@@ -14,6 +14,7 @@ from .utils.misc import (
     log_data,
     log_file,
     log_final,
+    log_warn,
 )
 from inputimeout import inputimeout, TimeoutOccurred
 
@@ -65,7 +66,15 @@ async def process_asmhentai(id: int):
         img_url = i
 
         try:
-            r = requests.get(img_url)
+            while True:
+                try:
+                    r = requests.get(img_url)
+                    break
+                except Exception as e:
+                    log_warn(e, f"Retrying {img_url} in 3 seconds...")
+                    time.sleep(3)
+                    continue
+
             if r.status_code == 200:
                 img_url = img_url
             else:

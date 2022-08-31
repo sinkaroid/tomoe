@@ -15,6 +15,7 @@ from .utils.misc import (
     log_data,
     log_file,
     log_final,
+    log_warn,
 )
 from inputimeout import inputimeout, TimeoutOccurred
 
@@ -66,7 +67,16 @@ async def process_simplyh(id: str):
 
     for i in range(len(img)):
         start = time.time()
-        r = requests.get(img[i])
+
+        while True:
+            try:
+                r = requests.get(img[i])
+                break
+            except Exception as e:
+                log_warn(e, f"Retrying {img[i]} in 3 seconds...")
+                time.sleep(3)
+                continue
+
         with open(f"{neat_dir}/{i+1}.jpg", "wb") as f:
             f.write(r.content)
 
