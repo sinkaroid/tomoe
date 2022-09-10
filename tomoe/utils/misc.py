@@ -26,6 +26,8 @@ def choose():
         "--bulk", "-bulk", action="store", metavar=("BULK"), type=str
     )
 
+    my_parser.add_argument("--pdf", "-pdf", action="store_true")
+
     args = my_parser.parse_args()
     return args
 
@@ -169,6 +171,20 @@ def log_file(file: str, size: str, took: str):
         Time took
     """
     logging.info(f"Successfully downloaded {file}: {size} MB, took: {took} Seconds")
+
+
+def log_warn(case: str, note: str):
+    """Logging warning
+
+    Parameters
+    ----------
+    case : str
+        Case of the log
+
+    note : str
+        Note of the log
+    """
+    logging.info(f"{case}: {note}")
 
 
 def log_warn(case: str, note: str):

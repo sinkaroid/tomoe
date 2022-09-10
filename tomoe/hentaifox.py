@@ -1,25 +1,27 @@
 import asyncio
-import janda
-import requests
 import os
 import re
 import time
+
+import janda
+import requests
+from inputimeout import TimeoutOccurred
+
+from .pdf import process_pdf
+from .utils.const import TOMOE_HTML
 from .utils.misc import (
     choose,
-    split_name,
     get_size,
-    convert_html_to_pdf,
-    project,
     get_size_folder,
     log_data,
     log_file,
     log_final,
     log_warn,
+    project,
+    split_name,
 )
-from inputimeout import inputimeout, TimeoutOccurred
 
 hfox = janda.Hentaifox()
-t: str = "tomoe.html"
 
 
 async def get_hfox(ids=choose().hentaifox):
@@ -101,7 +103,7 @@ async def process_hentaifox(id: int):
                     f"{(time.time() - initial) / 60:.2f}", get_size_folder(neat_dir)
                 )
 
-                with open(neat_dir + "/" + t, "x", encoding="utf-8") as f:
+                with open(neat_dir + "/" + TOMOE_HTML, "x", encoding="utf-8") as f:
                     f.write("<html><center><body>")
                     f.write(f"<h1>{parser['data']['id']}</h1>")
 
@@ -128,35 +130,6 @@ async def process_hentaifox(id: int):
                     print(f"Directory: {os.path.abspath(neat_dir)}")
 
                 try:
-                    desired = inputimeout(
-                        prompt="Do you want to render it all to .pdf? (y/n) ",
-                        timeout=10,
-                    )
-                    to_pdf = desired
-
-                    if to_pdf == "y":
-                        try:
-                            source = open(f"{neat_dir}/{t}")
-                            output = f"{neat_dir}/{parser['data']['id']}.pdf"
-                            filepdf = output.rsplit("/", 1)[-1]
-
-                            convert_html_to_pdf(source, output)
-                            print(
-                                f"Successfully rendered to {filepdf} | {get_size(output)} MB"
-                            )
-
-                        except Exception as e:
-                            print(f"Something went wrong while converting to pdf: {e}")
-
-                    elif to_pdf == "n":
-                        print("Okay")
-                        os.remove(neat_dir + "/" + t)
-                        return
-
-                    else:
-                        print("Invalid input")
-                        os.remove(neat_dir + "/" + t)
-                        return
-
+                    process_pdf(neat_dir, parser["data"]["id"])
                 except TimeoutOccurred:
                     print(f"Timeout occurred, not rendering pdf {id}")
