@@ -24,6 +24,9 @@ asmhentai:
 
 bulk:
 	tomoe --bulk doujin.json
+
+pdf:
+	tomoe --nhentai 255369 --pdf
 	
 api-mock: # check api if something down
 	python -m unittest test.test_api
