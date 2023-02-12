@@ -70,7 +70,7 @@ async def process_pururin(id: int):
 
         while True:
             try:
-                r = await get(img_url)
+                content_bytes = await get(img_url)
                 break
             except Exception as e:
                 log_warn(e, f"Retrying {img_name} in 3 seconds...")
@@ -79,7 +79,8 @@ async def process_pururin(id: int):
 
         with open(neat_dir + "/" + img_name, "wb") as f:
 
-            f.write(r)
+            f.write(content_bytes)
+            print("ini bytes")
 
             if os.path.exists(neat_dir + "/" + img_name):
                 log_file(
