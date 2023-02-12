@@ -28,12 +28,12 @@ async def get_h2r(ids=choose().hentai2read):
     for id in ids:
         par = id.split(":")
         await asyncio.gather(process_h2r(par[0], par[1]))
-        print(f"Complete process {par[0]}, chapter {par[1]}")
+        print(f"Complete process {par[0]}")
 
 
-async def process_h2r(id: str, chapter: int):
+async def process_h2r(id: str):
     initial = time.time()
-    data = await h2r.get(id, chapter)
+    data = await h2r.get(id)
     parser = janda.resolve(data)
 
     title = re.sub(r"[^\w\s]", "", parser["data"]["title"])
@@ -104,5 +104,5 @@ async def process_h2r(id: str, chapter: int):
                     process_pdf(neat_dir, parser["data"]["title"])
                 except TimeoutOccurred:
                     print(
-                        f"Timeout occurred, not rendering pdf {id}, chapter: {chapter}"
+                        f"Timeout occurred, not rendering pdf {id}"
                     )

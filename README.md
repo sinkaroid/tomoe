@@ -116,7 +116,7 @@ You can pass multiple id to request bulk download
 | nhentai     | place multiple id               | `tomoe --nhentai 255369 417103 417119`                                                                                     |
 | pururin     | place multiple id               | `tomoe --pururin 47226 64351 56175`                                                                                        |
 | hentaifox   | place multiple id               | `tomoe --hentaifox 59026 61805`                                                                                            |
-| hentai2read | place multiple `chapter:number` | `tomoe --hentai2read chaldea_life:1 watashitachi_producersan_ni_mechakucha:1`                                              |
+| hentai2read | place multiple `chapter:number` | `tomoe --hentai2read chaldea_life/1 watashitachi_producersan_ni_mechakucha:1`                                              |
 | simply      | place multiple chapter          | `tomoe --simply "fate-grand-order/fgo-no-ashibon-fgo-foot-book/all-pages" "original-work/kanchou-manga-cffc37a/all-pages"` |
 | asmhentai   | place multiple id               | `tomoe --asmhentai 311851 210135 309068`                                                                                   |
 
