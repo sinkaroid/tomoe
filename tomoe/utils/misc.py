@@ -22,6 +22,7 @@ def choose():
         nargs="+",
     )
     my_parser.add_argument("--asmhentai", "-asmhentai", action="store", nargs="+")
+    my_parser.add_argument("--3hentai", "-3hentai", action="store", nargs="+")
     my_parser.add_argument(
         "--bulk", "-bulk", action="store", metavar=("BULK"), type=str
     )

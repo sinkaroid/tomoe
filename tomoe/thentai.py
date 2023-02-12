@@ -24,7 +24,7 @@ from .utils.misc import (
 thentai = janda.Thentai()
 
 
-async def get_thentai(ids=choose().thentai):
+async def get_3hentai(ids=choose().thentai):
     for id in ids:
         await asyncio.gather(process_thentai(id))
         print(f"Complete process {id}")
