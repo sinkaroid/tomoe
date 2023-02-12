@@ -1,10 +1,9 @@
+import janda
 import asyncio
 import os
 import re
 import time
-
-import janda
-import requests
+from .utils.request import get, check_status
 from inputimeout import TimeoutOccurred
 
 from .pdf import process_pdf
@@ -70,26 +69,26 @@ async def process_asmhentai(id: int):
         try:
             while True:
                 try:
-                    r = requests.get(img_url)
+                    r = await check_status(img_url)
                     break
                 except Exception as e:
                     log_warn(e, f"Retrying {img_url} in 3 seconds...")
                     time.sleep(3)
                     continue
 
-            if r.status_code == 200:
+            if r == 200:
                 img_url = img_url
             else:
-                img_url = re.sub(r"(?<=\d{3})\d{3}", r.status_code, img_url)
+                img_url = re.sub(r"(?<=\d{3})\d{3}", r, img_url)
         except:
             img_url = img_url.replace(".jpg", ".png")
 
         img_name = img_url.rsplit("/", 1)[-1]
 
-        r = requests.get(img_url)
+        r = await get(img_url)
         with open(neat_dir + "/" + img_name, "wb") as f:
 
-            f.write(r.content)
+            f.write(r)
 
             if os.path.exists(neat_dir + "/" + img_name):
                 log_file(
@@ -110,12 +109,12 @@ async def process_asmhentai(id: int):
                     for i in img:
                         img_url = i
                         try:
-                            r = requests.get(img_url)
-                            if r.status_code == 200:
+                            r = await check_status(img_url)
+                            if r == 200:
                                 img_url = img_url
                             else:
                                 img_url = re.sub(
-                                    r"(?<=\d{3})\d{3}", r.status_code, img_url
+                                    r"(?<=\d{3})\d{3}", r, img_url
                                 )
                         except:
                             img_url = img_url.replace(".jpg", ".png")

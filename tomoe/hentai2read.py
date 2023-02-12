@@ -1,10 +1,9 @@
+import janda
 import asyncio
 import os
 import re
 import time
-
-import janda
-import requests
+from .utils.request import get
 from inputimeout import TimeoutOccurred
 
 from .pdf import process_pdf
@@ -63,7 +62,7 @@ async def process_h2r(id: str):
 
         while True:
             try:
-                r = requests.get(img_url)
+                content_bytes = await get(img_url)
                 break
             except Exception as e:
                 log_warn(e, f"Retrying {img_name} in 3 seconds...")
@@ -72,7 +71,7 @@ async def process_h2r(id: str):
 
         with open(neat_dir + "/" + img_name, "wb") as f:
 
-            f.write(r.content)
+            f.write(content_bytes)
 
             if os.path.exists(neat_dir + "/" + img_name):
                 log_file(

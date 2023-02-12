@@ -1,9 +1,8 @@
+import janda
 import asyncio
 import os
 import re
 import time
-
-import janda
 from .utils.request import get
 from inputimeout import TimeoutOccurred
 
