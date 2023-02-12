@@ -1,4 +1,4 @@
-name: Pururin test
+name: 3hentai test
 on:
   push:
     branches:
@@ -21,4 +21,4 @@ jobs:
           python -m pip install --upgrade pip
           python setup.py install
       - name: Download book
-        run: tomoe --pururin 47226
+        run: tomoe --three 608979
