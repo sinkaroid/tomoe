@@ -27,7 +27,7 @@ h2r = janda.Hentai2read()
 async def get_h2r(ids=choose().hentai2read):
     for id in ids:
         par = id.split(":")
-        await asyncio.gather(process_h2r(par[0], par[1]))
+        await asyncio.gather(process_h2r(par[0]))
         print(f"Complete process {par[0]}")
 
 
