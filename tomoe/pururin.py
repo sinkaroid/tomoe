@@ -4,7 +4,7 @@ import re
 import time
 
 import janda
-from utils.request import get
+from .utils.request import get
 from inputimeout import TimeoutOccurred
 
 from .pdf import process_pdf
