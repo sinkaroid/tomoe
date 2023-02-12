@@ -1,8 +1,6 @@
-import janda
 import argparse
 import os
 import logging
-import re
 from xhtml2pdf import pisa
 
 logging.basicConfig(format="%(asctime)s - %(message)s", level=logging.INFO)
@@ -22,6 +20,7 @@ def choose():
         nargs="+",
     )
     my_parser.add_argument("--asmhentai", "-asmhentai", action="store", nargs="+")
+    my_parser.add_argument("--three", "-three", action="store", nargs="+")
     my_parser.add_argument(
         "--bulk", "-bulk", action="store", metavar=("BULK"), type=str
     )

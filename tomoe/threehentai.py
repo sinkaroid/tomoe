@@ -20,18 +20,18 @@ from .utils.misc import (
     split_name,
 )
 
-pururin = janda.Pururin()
+three = janda.Thentai()
 
 
-async def get_pur(ids=choose().pururin):
+async def get_three(ids=choose().three):
     for id in ids:
-        await asyncio.gather(process_pururin(id))
+        await asyncio.gather(process_three(id))
         print(f"Complete process {id}")
 
 
-async def process_pururin(id: int):
+async def process_three(id: int):
     initial = time.time()
-    data = await pururin.get(id)
+    data = await three.get(id)
     parser = janda.resolve(data)
 
     title = re.sub(r"[^\w\s]", "", parser["data"]["title"])
