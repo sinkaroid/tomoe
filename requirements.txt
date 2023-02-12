@@ -1,4 +1,3 @@
-aiohttp==3.8.3
 inputimeout>=1.0.4
 janda>=3.1.2
 xhtml2pdf>=0.2.7
