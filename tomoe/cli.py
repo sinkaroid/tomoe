@@ -7,6 +7,7 @@ from tomoe.simplyh import get_sim
 from tomoe.hentaifox import get_hfox
 from tomoe.hentai2read import get_h2r
 from tomoe.asmhentai import get_asm
+from tomoe.thentai import get_thentai
 from tomoe.bulk_download import get_bulk
 from tomoe.utils.misc import choose, need_args
 
@@ -20,6 +21,7 @@ class Tomoe:
         Haentaifox: str = choose().hentaifox,
         Hentai2read: str = choose().hentai2read,
         Asmhentai: str = choose().asmhentai,
+        Thentai: str = choose().thentai,
         Bulk: str = choose().bulk,
     ):
 
@@ -29,6 +31,7 @@ class Tomoe:
         self.hentaifox = Haentaifox
         self.hentai2read = Hentai2read
         self.asmhentai = Asmhentai
+        self.thentai = Thentai
         self.bulk = Bulk
 
 
@@ -54,6 +57,9 @@ def main():
     async def main_asmhentai():
         await asyncio.gather(get_asm(Api.asmhentai))
 
+    async def main_thentai():
+        await asyncio.gather(get_thentai(Api.thentai))
+
     async def main_bulk():
         await asyncio.gather(get_bulk(Api.bulk))
 
@@ -74,6 +80,9 @@ def main():
 
     elif Api.asmhentai is not None:
         asyncio.run(main_asmhentai())
+
+    elif Api.thentai is not None:
+        asyncio.run(main_thentai())
 
     elif Api.bulk is not None:
         asyncio.run(main_bulk())
