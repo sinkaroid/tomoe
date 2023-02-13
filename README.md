@@ -27,10 +27,9 @@ Tomoe is a CLI tool for downloading doujinshi from various doujinboards. It's al
     - [Options](#options)
     - [Bulk download](#bulk-download)
     - [Bulk download using nested list](#bulk-download-using-nested-list)
-  - [Pronounciation](#pronounciation)
+  - [Pronunciation](#pronunciation)
   - [Acknowledgements](./CLOSING_REMARKS.md)
   - [Legal](#legal)
-  - [EoF](#eof)
 
 ---
 
@@ -72,7 +71,7 @@ Currently tomoe supports the following websites:
 - [asmhentai.com](https://asmhentai.com/)
 - [3hentai.net](https://3hentai.net/)
 
-## Prequisites
+## Prerequisites
 
 <table>
 	<td><b>NOTE:</b> Python 3.7 or above</td>
@@ -80,7 +79,7 @@ Currently tomoe supports the following websites:
 
 ## Installation
 
-`pip install tomoe` / `pipenv install tomoe`
+`pip install tomoe`
 
 - Or manual build by cloning the repository and run `python setup.py install`
 
@@ -172,17 +171,13 @@ Create `doujin.json` in the same directory where you want to run tomoe and follo
 Then tell tomoe to resolve all the book ids from the JSON file.
 `tomoe --bulk doujin.json`
 
+## Pronunciation
+
+[`ja_JP`](https://www.localeplanet.com/java/ja-JP/index.html) • **to-moe** — commonly translated as "comma", is a comma-like swirl symbol used in Japanese mon. It closely resembles the usual form of a magatama.
+
 ## Legal
 
 This tool can be freely copied, modified, altered, distributed without any attribution whatsoever. However, if you feel
 like this tool deserves an attribution, mention it. It won't hurt anybody.
 
 > Licence: WTF.
-
-## Pronounciation
-
-[`ja_JP`](https://www.localeplanet.com/java/ja-JP/index.html) • **to-moe** — commonly translated as "comma", is a comma-like swirl symbol used in Japanese mon. It closely resembles the usual form of a magatama.
-
-## EoF
-
-All books from those third-party doujinboards are definitely illegal from original authors. Support the authors by buying the original book.
