@@ -20,31 +20,38 @@ from .utils.misc import (
     split_name,
 )
 
-h2r = janda.Hentai2read()
+three = janda.Thentai()
 
 
-async def get_h2r(ids=choose().hentai2read):
+async def get_three(ids=choose().three):
     for id in ids:
-        par = id.split(":")
-        await asyncio.gather(process_h2r(par[0]))
-        print(f"Complete process {par[0]}")
+        await asyncio.gather(process_three(id))
+        print(f"Complete process {id}")
 
 
-async def process_h2r(id: str):
+async def process_three(id: int):
     initial = time.time()
-    data = await h2r.get(id)
+    data = await three.get(id)
     parser = janda.resolve(data)
 
     title = re.sub(r"[^\w\s]", "", parser["data"]["title"])
     img = parser["data"]["image"]
-    slug = parser["data"]["id"]
+    number = parser["data"]["id"]
+    tags = parser["data"]["tags"]
+    tags = [tag for tag in tags]
+    to_tags = ", ".join(tags)
 
     log_data("TITLE", title)
-    log_data("ID", slug)
-    log_data("SOURCE", parser["current_url"])
-    log_data("TOTAL", f"{len(parser['data']['image'])} pages")
+    log_data("TAGS", to_tags)
+    log_data("ID", number)
+    log_data("SOURCE", parser["source"])
+    log_data("TOTAL", f"{parser['data']['total']} pages")
 
-    neat_dir = split_name(__file__) + " - " + title
+    neat_dir = f"{split_name(__file__)}-{number}-{title}"
+    neat_dir = re.sub("[^A-Za-z0-9-]+", " ", neat_dir)
+
+    neat_dir = re.sub(r"\s+", "_", neat_dir)
+
     if not os.path.exists(neat_dir):
         os.makedirs(neat_dir)
 
@@ -89,7 +96,7 @@ async def process_h2r(id: str):
 
                 with open(neat_dir + "/" + TOMOE_HTML, "x", encoding="utf-8") as f:
                     f.write("<html><center><body>")
-                    f.write(f"<h1>{parser['data']['title']}</h1>")
+                    f.write(f"<h1>{parser['data']['id']}</h1>")
 
                     for i in img:
                         file = i.rsplit("/", 1)[-1]
@@ -100,8 +107,6 @@ async def process_h2r(id: str):
                     f.close()
 
                 try:
-                    process_pdf(neat_dir, parser["data"]["title"])
+                    process_pdf(neat_dir, parser["data"]["id"])
                 except TimeoutOccurred:
-                    print(
-                        f"Timeout occurred, not rendering pdf {id}"
-                    )
+                    print(f"Timeout occurred, not rendering pdf {id}")

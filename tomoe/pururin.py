@@ -1,9 +1,8 @@
+import janda
 import asyncio
 import os
 import re
 import time
-
-import janda
 from .utils.request import get
 from inputimeout import TimeoutOccurred
 
@@ -80,7 +79,6 @@ async def process_pururin(id: int):
         with open(neat_dir + "/" + img_name, "wb") as f:
 
             f.write(content_bytes)
-            print("ini bytes")
 
             if os.path.exists(neat_dir + "/" + img_name):
                 log_file(

@@ -1,7 +1,7 @@
 import asyncio
-from .utils.misc import choose
 import json
 import time
+from .utils.misc import choose
 from .pururin import process_pururin
 from .nhentai import process_nhentai
 from .hentaifox import process_hentaifox
@@ -39,7 +39,7 @@ async def get_bulk(book: str = choose().bulk):
                 await asyncio.gather(process_simplyh(value))
             elif key.startswith("hentai2"):
                 h2r_path = value.split(":")
-                await asyncio.gather(process_h2r(h2r_path[0], h2r_path[1]))
+                await asyncio.gather(process_h2r(value))
 
             else:
                 print("An unexpected property that does not support:", key, value)

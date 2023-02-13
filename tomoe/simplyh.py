@@ -1,10 +1,9 @@
+import janda
 import asyncio
 import os
 import re
 import time
-
-import janda
-import requests
+from .utils.request import get
 from inputimeout import TimeoutOccurred
 
 from .pdf import process_pdf
@@ -72,7 +71,7 @@ async def process_simplyh(id: str):
 
         while True:
             try:
-                r = requests.get(img[i])
+                content_bytes = await get(img[i])
                 break
             except Exception as e:
                 log_warn(e, f"Retrying {img[i]} in 3 seconds...")
@@ -80,7 +79,7 @@ async def process_simplyh(id: str):
                 continue
 
         with open(f"{neat_dir}/{i+1}.jpg", "wb") as f:
-            f.write(r.content)
+            f.write(content_bytes)
 
             if os.path.exists(f"{neat_dir}/{i+1}.jpg"):
                 file = get_size(f"{neat_dir}/{i+1}.jpg")

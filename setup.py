@@ -29,7 +29,7 @@ setup(
     url='https://github.com/sinkaroid/tomoe',
     project_urls={
         "Discord": "https://discord.gg/8wj4vM5hHM",
-        "Funding": "https://paypal.me/sinkaroid",
+        "Funding": "https://github.com/sponsors/sinkaroid",
         "Issue tracker": "https://github.com/sinkaroid/tomoe/issues/new/choose",
         "Documentation": "https://github.com/sinkaroid/tomoe/wiki",
     },
