@@ -111,4 +111,4 @@ setup.cfg
 .vscode
 .gitchangelog.rc
 data.json
-
+CHANGELOG.md
