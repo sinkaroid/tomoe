@@ -85,11 +85,11 @@ Currently tomoe supports the following websites:
 
 ## Command usage
 
-`tomoe --args <id|path>`
+> `tomoe --args <id|path>`
 
 ## Quick example
 
-`tomoe --nhentai 177013`
+> `tomoe --nhentai 177013`
 
 After that, you could see the download results or throw you an error if something went wrong.
 
@@ -99,15 +99,15 @@ It's fairly simple to use tomoe
 
 | **Argument**                      | **Description**           | **Example**                                                                                                                                                         |
 | --------------------------------- | ------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| --nhentai, int                    | nhentai                   | [`tomoe --nhentai 255369`](https://nhentai.net/g/255369/)                                                                                                           |
-| --pururin, int                    | pururin                   | [`tomoe --pururin 47226`](https://pururin.to/gallery/47226/crot-sampe-lumpuh)                                                                                       |
-| --hentaifox, int                  | hentaifox                 | [`tomoe --hentaifox 59026`](https://hentaifox.com/gallery/59026/)                                                                                                   |
-| --hentai2read, str chapter:number | hentai2read               | [`tomoe --hentai2read chaldea_life/1`](https://hentai2read.com/chaldea_life/)                                                                                       |
-| --simply, str                     | simply-hentai             | [`tomoe --simply "fate-grand-order/fgo-no-ashibon-fgo-foot-book/all-pages"`](https://www.simply-hentai.com/fate-grand-order/fgo-no-ashibon-fgo-foot-book/all-pages) |
-| --asmhentai, int                  | asmhentai                 | [`tomoe --asmhentai 311851`](https://asmhentai.com/g/311851/)     
-| --three, int                  | 3hentai                 | [`tomoe --three 608979`](https://asmhentai.com/g/311851/)                                                                                                   |
-| --bulk, str                       | custom bulk download      | [`tomoe --bulk doujin.json`](/doujin.json)                                                                                                                          |
-| --pdf, str                        | render pdf for each title | [`tomoe --nhentai 255369 --pdf`](https://3hentai.net/d/608979)                                                                                                     |
+| `--nhentai`, int                    | nhentai                   | [`tomoe --nhentai 255369`](https://nhentai.net/g/255369/)                                                                                                           |
+| `--pururin`, int                    | pururin                   | [`tomoe --pururin 47226`](https://pururin.to/gallery/47226/crot-sampe-lumpuh)                                                                                       |
+| `--hentaifox`, int                  | hentaifox                 | [`tomoe --hentaifox 59026`](https://hentaifox.com/gallery/59026/)                                                                                                   |
+| `--hentai2read`, str | hentai2read               | [`tomoe --hentai2read chaldea_life/1`](https://hentai2read.com/chaldea_life/)                                                                                       |
+| `--simply`, str                     | simply-hentai             | [`tomoe --simply "fate-grand-order/fgo-no-ashibon-fgo-foot-book/all-pages"`](https://www.simply-hentai.com/fate-grand-order/fgo-no-ashibon-fgo-foot-book/all-pages) |
+| `--asmhentai`, int                  | asmhentai                 | [`tomoe --asmhentai 311851`](https://asmhentai.com/g/311851/)     
+| `--three`, int                  | 3hentai                 | [`tomoe --three 608979`](https://asmhentai.com/g/311851/)                                                                                                   |
+| `--bulk`, str                       | custom bulk download      | [`tomoe --bulk doujin.json`](/doujin.json)                                                                                                                          |
+| `--pdf`, str                        | render pdf for each title | [`tomoe --nhentai 255369 --pdf`](https://3hentai.net/d/608979)                                                                                                     |
 
 ## Bulk download
 
@@ -118,13 +118,13 @@ You can pass multiple id to request bulk download
 | nhentai     | place multiple id               | `tomoe --nhentai 255369 417103 417119`                                                                                     |
 | pururin     | place multiple id               | `tomoe --pururin 47226 64351 56175`                                                                                        |
 | hentaifox   | place multiple id               | `tomoe --hentaifox 59026 61805`                                                                                            |
-| hentai2read | place multiple `chapter:number` | `tomoe --hentai2read chaldea_life/1 watashitachi_producersan_ni_mechakucha/1`                                              |
+| hentai2read | place multiple path | `tomoe --hentai2read chaldea_life/1 watashitachi_producersan_ni_mechakucha/1`                                              |
 | simply      | place multiple chapter          | `tomoe --simply "fate-grand-order/fgo-no-ashibon-fgo-foot-book/all-pages" "original-work/kanchou-manga-cffc37a/all-pages"` |
 | asmhentai   | place multiple id               | `tomoe --asmhentai 311851 210135 309068`                                                                                   |
 
 ## Bulk download using nested list
 
-`tomoe --bulk doujin.json`
+> `tomoe --bulk doujin.json`
 
 If you need to download multiple doujins from each different website, you can do a bulk download using an arbitrary method. Meaning that you can mix and wrap the whole book ids into nested array in a JSON file. Read more about [Understanding Nested Arrays.](https://javascript.plainenglish.io/understanding-the-nested-arrays-fbf3ab13c2b4#:~:text=An%20array%20is%20an%20ordered,the%20element%20of%20an%20array)
 
