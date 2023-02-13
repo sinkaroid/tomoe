@@ -9,3 +9,4 @@ allows this services to operate.
 - [hentai2read](https://hentai2read.com)
 - [asmhentai](https://asmhentai.com)
 - [simply-hentai](https://simply-hentai.com)
+- [3hentai.net](https://3hentai.net)
