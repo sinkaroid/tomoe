@@ -1,5 +1,5 @@
 <div align="center">
-<a href="https://github.com/sinkaroid/tomoe/wiki"><img width="500" src="https://cdn.discordapp.com/attachments/952117487166705747/1013588505919762443/tomoe_.png" alt="tomoe"></a>
+<a href="https://github.com/sinkaroid/tomoe/wiki"><img width="500" src="https://raw.githubusercontent.com/sinkaroid/tomoe/refs/heads/master/resources/project/images/tomoe_.png" alt="tomoe"></a>
 
 <h3 align="center">An exalted doujinshi downloader with ease.</h3>
 <p align="center">
@@ -57,7 +57,7 @@ Tomoe consumes [Jandapress](https://github.com/sinkaroid/jandapress) and uses [j
 - Minimalist dependencies
 - Download with ease, doesn't require you a lot of arguments
 
-<img src="https://cdn.discordapp.com/attachments/997107089921028136/1014351915578040380/tomoe_.png" width="600" alt="tomoe">
+<img src="https://raw.githubusercontent.com/sinkaroid/tomoe/refs/heads/master/resources/project/images/tomoe_cli.png" width="600" alt="tomoe">
 
 ## Site support
 
