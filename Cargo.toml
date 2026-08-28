@@ -1,6 +1,6 @@
 [package]
 name = "tomoe"
-version = "4.0.7"
+version = "4.0.10"
 edition = "2024"
 authors = ["sinkaroid <scathachgrip@gmail.com>"]
 description = "A robust doujinshi downloader, uncompromising in efficiency (Jandapress Podman orchestration)"
@@ -18,7 +18,6 @@ exclude = [
     "legacy",
     ".github",
     "resources",
-    "tests",
     "AGENTS.md",
     "CODE_OF_CONDUCT.md",
     "CONTRIBUTING.md",
