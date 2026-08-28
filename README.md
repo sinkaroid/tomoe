@@ -5,13 +5,13 @@ Robust doujinshi downloader, uncompromising in efficiency.
 <a href="https://crates.io/crates/tomoe"><img align="right" src="https://raw.githubusercontent.com/sinkaroid/tomoe/refs/heads/master/resources/project/images/tomoe_.webp" width="360"></a>
 
 - [tomoe](#tomoe)
+  - [The Problems](#the-problems)
+  - [The Solutions](#the-solutions)
   - [Features](#features)
   - [Supported platform](#supported-platform)
   - [Prerequisites](#prerequisites)
   - [Installation](#installation)
     - [Install from crates.io](#install-from-cratesio)
-    - [Install from source](#install-from-source)
-    - [Run directly](#run-directly)
   - [Usage examples](#usage-examples)
     - [Single gallery download](#single-gallery-download)
     - [Download to PDF](#download--compile-to-pdf)
@@ -28,6 +28,23 @@ Robust doujinshi downloader, uncompromising in efficiency.
 
 > [!IMPORTANT]  
 > Following this transition, the legacy Python-based version previously hosted on PyPI ([`pypi.org/project/tomoe`](https://pypi.org/project/tomoe/)) is deprecated and no longer maintained. All future updates, bug fixes, and feature additions will be distributed exclusively via the Rust version on Crates.io ([`crates.io/crates/tomoe`](https://crates.io/crates/tomoe)).
+
+## The Problems
+
+Previously, the legacy Python implementation of `tomoe` relied on the `janda` Python library, which connected to a free public API instance of `jandapress` hosted at `janda.scathach.id`.
+
+However, all public API and playground services hosted at `janda.scathach.id` were officially discontinued due to persistent abuse and excessive usage. With the public API endpoint permanently offline, the legacy Python library (`janda v4.1.0`) and the old python-based `tomoe` became non-functional, throwing invalid errors.
+
+## The Solutions
+
+We ship `jandapress` and `tomoe-box` to your machine! This eliminates the cost, instability, and fragility of maintaining a public API endpoint by running the entire backend infrastructure directly on your local system.
+
+We now bundle and ship both components locally:
+
+1. **Scraping Engine:** `jandapress` is shipped as a lightweight Docker/Podman container (`ghcr.io/sinkaroid/jandapress:latest`).
+2. **Client Interface:** `tomoe` (written in Rust) automatically orchestrates this local container via Podman on-demand (mapping it to port `2002`).
+
+This architecture guarantees a zero-configuration, self-hosted setup that operates entirely locally on your machine—eliminating public rate limits, ensuring privacy, and preventing dependency on external hosting.
 
 ## Features
 
