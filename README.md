@@ -2,7 +2,7 @@
 
 Robust doujinshi downloader, uncompromising in efficiency.
 
-<a href="https://crates.io/crates/tomoe"><img align="right" src="resources/project/images/tomoe_.webp" width="360"></a>
+<a href="https://crates.io/crates/tomoe"><img align="right" src="resources/project/images/tomoe_.webp" width="400"></a>
 
 ---
 
@@ -13,7 +13,7 @@ Robust doujinshi downloader, uncompromising in efficiency.
   - [Installation](#installation)
     - [Install from Crates.io](#install-from-cratesio)
     - [Install from Source](#install-from-source)
-  - [Run directly with Cargo](#run-directly-with-cargo)
+    - [Run directly with Cargo](#run-directly-with-cargo)
   - [Usage Examples](#usage-examples)
     - [Single Gallery Download](#single-gallery-download)
     - [Download & Compile to PDF](#download--compile-to-pdf)
