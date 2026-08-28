@@ -1,4 +1,4 @@
-name: modular bulk download
+name: Bulk download test
 on:
   push:
     branches:
@@ -11,15 +11,13 @@ jobs:
   build:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v3
-      - name: Install Python 3
-        uses: actions/setup-python@v1
-        with:
-          python-version: 3.12
-      - name: Install dependencies
+      - uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683 # v4.2.2
+      - name: Install Rust
+        uses: actions-rust-lang/setup-rust-toolchain@v1
+      - name: Start Jandapress container
         run: |
-          python -m pip install --upgrade pip setuptools wheel
-          python -m pip install -r requirements.txt
-          python setup.py install
+          docker run -d -p 2002:3000 ghcr.io/sinkaroid/jandapress:latest
+          # Wait for container to be ready
+          sleep 10
       - name: Download from external list
-        run: tomoe --bulk doujin.json
+        run: cargo run -- --no_selfhost --jandapress_url http://localhost:2002 --bulk tests/bulk.json
