@@ -16,7 +16,7 @@ Robust doujinshi downloader, uncompromising in efficiency.
     - [Single gallery download](#single-gallery-download)
     - [Download to PDF](#download--compile-to-pdf)
     - [Bulk download](#bulk-download-from-json)
-    - [CLI reference](#cli-reference)
+    - [CLI reference](#cli-options-reference)
   - [Running tests](#running-tests)
   - [Diagnostics & logging](#diagnostics--logging)
   - [Pronunciation](#pronunciation)
