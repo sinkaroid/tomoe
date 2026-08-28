@@ -2,7 +2,7 @@
 
 Robust doujinshi downloader, uncompromising in efficiency.
 
-<a href="https://crates.io/crates/tomoe"><img align="right" src="resources/project/images/tomoe_.webp" width="380"></a>
+<a href="https://crates.io/crates/tomoe"><img align="right" src="resources/project/images/tomoe_.webp" width="360"></a>
 
 - [tomoe](#tomoe)
   - [Features](#features)
@@ -52,22 +52,22 @@ Robust doujinshi downloader, uncompromising in efficiency.
 
 Resolve items directly from the following supported scraper sources:
 
-| Provider              | CLI Flag        | Example ID / Chapter Path                                 |
-| --------------------- | --------------- | --------------------------------------------------------- |
-| **nhentai.net**       | `--nhentai`     | `255369`                                                  |
-| **pururin.to**        | `--pururin`     | `47226`                                                   |
-| **hentaifox.com**     | `--hentaifox`   | `59026`                                                   |
-| **hentai2read.com**   | `--hentai2read` | `chaldea_life/1`                                          |
-| **simply-hentai.com** | `--simply`      | `fate-grand-order/fgo-no-ashibon-fgo-foot-book/all-pages` |
-| **asmhentai.com**     | `--asmhentai`   | `311851`                                                  |
-| **3hentai.net**       | `--3hentai`     | `608979`                                                  |
+| Provider                                         | CLI Flag        | Example ID / Chapter Path                                 |
+| ------------------------------------------------ | --------------- | --------------------------------------------------------- |
+| [`nhentai.net`](https://nhentai.net)             | `--nhentai`     | `255369`                                                  |
+| [`pururin.to`](https://pururin.to)               | `--pururin`     | `47226`                                                   |
+| [`hentaifox.com`](https://hentaifox.com)         | `--hentaifox`   | `59026`                                                   |
+| [`hentai2read.com`](https://hentai2read.com)     | `--hentai2read` | `chaldea_life/1`                                          |
+| [`asmhentai.com`](https://asmhentai.com)         | `--asmhentai`   | `311851`                                                  |
+| [`3hentai.net`](https://3hentai.net)             | `--3hentai`     | `608979`                                                  |
+| [`simply-hentai.com`](https://simply-hentai.com) | `--simply`      | `fate-grand-order/fgo-no-ashibon-fgo-foot-book/all-pages` |
 
 ---
 
 ## Prerequisites
 
 - **Rust Toolchain**: Rust 1.75+ is required.
-- **Podman CLI**: Required to host the local scraping container. (Skip container checks entirely using the `--no_selfhost` flag if query redirection is handled by a remote API you deploy jandapress by yourself).
+- **Podman CLI**: Required to host the local scraping container. (Skip container checks entirely using the `--no_selfhost` flag if query redirection is handled by a remote API you deploy [`jandapress`](https://ghcr.io/sinkaroid/jandapress:latest) by yourself).
 
 ---
 
