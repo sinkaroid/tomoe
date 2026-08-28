@@ -1638,7 +1638,7 @@ dependencies = [
 
 [[package]]
 name = "tomoe"
-version = "4.0.4"
+version = "4.0.7"
 dependencies = [
  "clap",
  "image",
