@@ -1,12 +1,12 @@
 use clap::Parser;
 
-/// Tomoe - An exalted doujinshi downloader with ease.
+/// Tomoe - A robust doujinshi downloader, uncompromising in efficiency.
 #[derive(Parser, Debug, Clone)]
 #[command(
     name = "tomoe",
     author = "sinkaroid",
     version = env!("CARGO_PKG_VERSION"),
-    about = "An exalted doujinshi downloader with auto self-hosting jandapress via Podman",
+    about = "A robust doujinshi downloader, uncompromising in efficiency",
     long_about = None
 )]
 pub struct Cli {

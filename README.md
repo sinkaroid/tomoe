@@ -1,7 +1,7 @@
 <div align="center">
 <a href="https://github.com/sinkaroid/tomoe/wiki"><img width="500" src="https://raw.githubusercontent.com/sinkaroid/tomoe/refs/heads/master/resources/project/images/tomoe_.png" alt="tomoe"></a>
 
-<h3 align="center">An exalted doujinshi downloader with ease.</h3>
+<h3 align="center">A robust doujinshi downloader, uncompromising in efficiency.</h3>
 <p align="center">
 	<a href="https://crates.io/crates/tomoe"><img src="https://img.shields.io/crates/v/tomoe.svg" alt="Crates.io"></a>
 	<a href="https://github.com/sinkaroid/tomoe/actions"><img src="https://github.com/sinkaroid/tomoe/workflows/modular%20bulk%20download/badge.svg"></a>
