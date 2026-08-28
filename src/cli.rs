@@ -38,7 +38,7 @@ pub struct Cli {
     #[arg(long = "3hentai", alias = "three", num_args = 1..)]
     pub three: Option<Vec<String>>,
 
-    /// Bulk download using nested JSON file (e.g., "doujin.json")
+    /// Bulk download using nested JSON file (e.g., "bulk.json")
     #[arg(long, value_name = "FILE")]
     pub bulk: Option<String>,
 

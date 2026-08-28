@@ -6,19 +6,19 @@ Robust doujinshi downloader, uncompromising in efficiency.
 
 - [tomoe](#tomoe)
   - [Features](#features)
-  - [Supported Platform](#supported-platform)
+  - [Supported platform](#supported-platform)
   - [Prerequisites](#prerequisites)
   - [Installation](#installation)
-    - [Install from Crates.io](#install-from-cratesio)
-    - [Install from Source](#install-from-source)
-    - [Run directly with Cargo](#run-directly-with-cargo)
-  - [Usage Examples](#usage-examples)
-    - [Single Gallery Download](#single-gallery-download)
-    - [Download & Compile to PDF](#download--compile-to-pdf)
-    - [Bulk Download from JSON](#bulk-download-from-json)
-    - [CLI Options Reference](#cli-options-reference)
-  - [Running Tests](#running-tests)
-  - [Diagnostics & Logging](#diagnostics--logging)
+    - [Install from crates.io](#install-from-cratesio)
+    - [Install from source](#install-from-source)
+    - [Run directly](#run-directly)
+  - [Usage examples](#usage-examples)
+    - [Single gallery download](#single-gallery-download)
+    - [Download to PDF](#download--compile-to-pdf)
+    - [Bulk download](#bulk-download-from-json)
+    - [CLI reference](#cli-reference)
+  - [Running tests](#running-tests)
+  - [Diagnostics & logging](#diagnostics--logging)
   - [Pronunciation](#pronunciation)
   - [Legal](#legal)
 
@@ -91,7 +91,7 @@ cd tomoe
 cargo install --path .
 ```
 
-### Run directly with Cargo
+### Run directly
 
 You can run `tomoe` directly inside the source tree without installing it to PATH:
 
@@ -121,21 +121,37 @@ tomoe --nhentai 255369 --pdf
 
 ### Bulk Download from JSON
 
-Compile a list of multiple books across different providers in a JSON file (e.g. `legacy/doujin.json`) and run them:
+Compile a list of multiple books across different providers in a JSON file (e.g. `tests/bulk.json`) and run them:
 
 ```bash
-tomoe --bulk legacy/doujin.json
+tomoe --bulk tests/bulk.json
 ```
 
-**JSON Schema Example (`doujin.json`):**
+**JSON Schema Example (`bulk.json`):**
 
 ```json
 {
   "book": [
-    { "nhentai": 255369 },
-    { "pururin": 47226 },
+    {
+      "nhentai": 255369
+    },
+    {
+      "pururin": 47226
+    },
+    {
+      "hentaifox": 59026
+    },
+    {
+      "asmhentai": 311851
+    },
+    {
+      "hentai2read": "chaldea_life/1"
+    },
     {
       "simply-hentai": "fate-grand-order/fgo-no-ashibon-fgo-foot-book/all-pages"
+    },
+    {
+      "3hentai": 608979
     }
   ]
 }
@@ -154,13 +170,13 @@ tomoe --bulk legacy/doujin.json
 | `--simply <CHAPTER...>`   | Download from simply-hentai                  | `tomoe --simply "fate-grand-order/fgo-no-ashibon-fgo-foot-book/all-pages"` |
 | `--asmhentai <ID...>`     | Download from asmhentai                      | `tomoe --asmhentai 311851`                                                 |
 | `--3hentai <ID...>`       | Download from 3hentai                        | `tomoe --3hentai 608979`                                                   |
-| `--bulk <FILE>`           | Bulk download from JSON file                 | `tomoe --bulk legacy/doujin.json`                                          |
-| `--pdf`                   | Render gallery into PDF                      | `tomoe --nhentai 255369 --pdf`                                             |
-| `--jandapress_url <URL>`  | Specify remote Jandapress server URL         | `tomoe --jandapress_url http://localhost:2002`                             |
-| `--no_selfhost`           | Skip local Podman container checks           | `tomoe --no_selfhost`                                                      |
-| `--nhentai_api_key <KEY>` | Optional API key for official nhentai API    | `tomoe --nhentai_api_key mykey`                                            |
-| `--kill_janda`            | Stop and kill the local Jandapress container | `tomoe --kill_janda`                                                       |
-| `--start_janda`           | Start the local Jandapress container         | `tomoe --start_janda`                                                      |
+| `--bulk <FILE>`           | Bulk download from json file                 | `tomoe --bulk tests/bulk.json`                                             |
+| `--pdf`                   | Render gallery into pdf                      | `tomoe --nhentai 255369 --pdf`                                             |
+| `--jandapress_url <URL>`  | Specify remote jandapress server url         | `tomoe --jandapress_url http://localhost:2002`                             |
+| `--no_selfhost`           | Skip local podman container checks           | `tomoe --no_selfhost`                                                      |
+| `--nhentai_api_key <KEY>` | Optional api key for official nhentai        | `tomoe --nhentai_api_key mykey`                                            |
+| `--kill_janda`            | Stop and kill the local jandapress container | `tomoe --kill_janda`                                                       |
+| `--start_janda`           | Start the local jandapress container         | `tomoe --start_janda`                                                      |
 
 ---
 

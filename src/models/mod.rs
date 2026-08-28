@@ -35,7 +35,7 @@ pub struct JandaResponse {
     pub message: Option<String>,
 }
 
-/// Structure for bulk download JSON configurations (e.g. `doujin.json`).
+/// Structure for bulk download JSON configurations (e.g. `bulk.json`).
 #[derive(Debug, Clone, Serialize, Deserialize)]
 pub struct BulkConfig {
     pub book: Vec<HashMap<String, serde_json::Value>>,
