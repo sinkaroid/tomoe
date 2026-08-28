@@ -2,7 +2,7 @@
 
 Robust doujinshi downloader, uncompromising in efficiency.
 
-<a href="https://crates.io/crates/tomoe"><img align="right" src="resources/project/images/tomoe_.webp" width="360"></a>
+<a href="https://crates.io/crates/tomoe"><img align="right" src="https://raw.githubusercontent.com/sinkaroid/tomoe/refs/heads/master/resources/project/images/tomoe_.webp" width="360"></a>
 
 - [tomoe](#tomoe)
   - [Features](#features)

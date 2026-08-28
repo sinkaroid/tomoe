@@ -1,0 +1,35 @@
+name: Crate publish
+
+on:
+  push:
+    branches: [master]
+
+jobs:
+  publish:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683 # v4.2.2
+        with:
+          fetch-depth: 0
+
+      - name: Check if version changed
+        id: version_check
+        run: |
+          CURR_VERSION=$(grep -m 1 '^version =' Cargo.toml | cut -d '"' -f 2)
+          PREV_VERSION=$(git show HEAD^:Cargo.toml 2>/dev/null | grep -m 1 '^version =' | cut -d '"' -f 2 || echo "")
+          if [ "$CURR_VERSION" != "$PREV_VERSION" ] && [ -n "$CURR_VERSION" ]; then
+            echo "changed=true" >> "$GITHUB_OUTPUT"
+          else
+            echo "changed=false" >> "$GITHUB_OUTPUT"
+          fi
+
+      - name: Install Rust
+        if: steps.version_check.outputs.changed == 'true'
+        uses: actions-rust-lang/setup-rust-toolchain@v1
+
+      - name: Publish to Crates.io
+        if: steps.version_check.outputs.changed == 'true'
+        env:
+          CARGO_REGISTRY_TOKEN: ${{ secrets.CARGO_REGISTRY_TOKEN }}
+        run: cargo publish --allow-dirty
