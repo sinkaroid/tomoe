@@ -2,9 +2,8 @@
 name: Bug report
 about: Create a report to help us improve
 title: bug
-labels: ''
-assignees: ''
-
+labels: ""
+assignees: ""
 ---
 
 **Describe the bug**
@@ -17,11 +16,12 @@ Steps to reproduce the behavior:
 A clear and concise description of what you expected to happen.
 
 **Specify an id or any parameter from the website related this bug**
-For example nhentai id 177013
+For example nhentai id 255369
 
 **Desktop (please complete the following information):**
- - OS: [e.g. iOS]
- - Python version
+
+- OS: [e.g. iOS]
+- Rust version
 
 **Additional context**
 Add any other context about the problem here.
