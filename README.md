@@ -218,6 +218,14 @@ All messages printed to stdout/stderr are formatted with standardized ISO 8601 U
 
 [`ja_JP`](https://www.localeplanet.com/java/ja-JP/index.html) • **to-moe** — commonly translated as "comma", is a comma-like swirl symbol used in Japanese mon. It closely resembles the usual form of a magatama.
 
+## Todo
+
+Developing this tool in Rust has been an exceptionally rewarding experience. While the compiler is uncompromisingly strict—frequently flag-checking unused variables and declarations intended for future use—it guarantees safety and runtime efficiency before the application ever runs.
+
+My current roadmap:
+
+- [ ] Transition Tomoe from a CLI downloader into a decentralized browsing and reading platform.
+
 ## Legal
 
 This tool can be freely copied, modified, altered, distributed without any attribution whatsoever. However, if you feel
