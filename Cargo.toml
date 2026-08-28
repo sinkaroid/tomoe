@@ -1,9 +1,9 @@
 [package]
 name = "tomoe"
-version = "4.0.2"
+version = "4.0.3"
 edition = "2024"
 authors = ["sinkaroid <scathachgrip@gmail.com>"]
-description = "An exalted doujinshi downloader with auto self-hosting jandapress via Podman"
+description = "A robust doujinshi downloader, uncompromising in efficiency (Jandapress Podman orchestration)"
 readme = "README.md"
 homepage = "https://github.com/sinkaroid/tomoe"
 repository = "https://github.com/sinkaroid/tomoe"
@@ -15,6 +15,7 @@ exclude = [
     "*.pdf",
     "tomoe.html",
     ".agent",
+    "legacy",
 ]
 
 [dependencies]
