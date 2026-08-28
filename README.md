@@ -24,8 +24,6 @@ Robust doujinshi downloader, uncompromising in efficiency.
 
 ---
 
-## tomoe
-
 > [!IMPORTANT]  
 > Following this transition, the legacy Python-based version previously hosted on PyPI ([`pypi.org/project/tomoe`](https://pypi.org/project/tomoe/)) is deprecated and no longer maintained. All future updates, bug fixes, and feature additions will be distributed exclusively via the Rust version on Crates.io ([`crates.io/crates/tomoe`](https://crates.io/crates/tomoe)).
 
