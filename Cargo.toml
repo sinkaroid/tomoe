@@ -1,0 +1,30 @@
+[package]
+name = "tomoe"
+version = "4.0.2"
+edition = "2024"
+authors = ["sinkaroid <scathachgrip@gmail.com>"]
+description = "An exalted doujinshi downloader with auto self-hosting jandapress via Podman"
+readme = "README.md"
+homepage = "https://github.com/sinkaroid/tomoe"
+repository = "https://github.com/sinkaroid/tomoe"
+license = "MIT"
+keywords = ["doujinshi", "downloader", "nhentai", "pdf", "cli"]
+categories = ["command-line-utilities", "multimedia"]
+exclude = [
+    "*-*-*",
+    "*.pdf",
+    "tomoe.html",
+    ".agent",
+]
+
+[dependencies]
+tokio = { version = "1", features = ["rt-multi-thread", "macros", "process", "io-util", "sync", "time"] }
+clap = { version = "4", features = ["derive", "env"] }
+reqwest = { version = "0.12", features = ["json", "stream"] }
+serde = { version = "1.0", features = ["derive"] }
+serde_json = "1.0"
+printpdf = { version = "0.7", features = ["image"] }
+image = "0.24"
+
+[dev-dependencies]
+tempfile = "3"
