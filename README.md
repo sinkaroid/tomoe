@@ -2,9 +2,7 @@
 
 Robust doujinshi downloader, uncompromising in efficiency.
 
-<a href="https://crates.io/crates/tomoe"><img align="right" src="resources/project/images/tomoe_.webp" width="400"></a>
-
----
+<a href="https://crates.io/crates/tomoe"><img align="right" src="resources/project/images/tomoe_.webp" width="380"></a>
 
 - [tomoe](#tomoe)
   - [Features](#features)
@@ -19,7 +17,6 @@ Robust doujinshi downloader, uncompromising in efficiency.
     - [Download & Compile to PDF](#download--compile-to-pdf)
     - [Bulk Download from JSON](#bulk-download-from-json)
     - [CLI Options Reference](#cli-options-reference)
-  - [Administrative Container Commands](#administrative-container-commands)
   - [Running Tests](#running-tests)
   - [Diagnostics & Logging](#diagnostics--logging)
   - [Pronunciation](#pronunciation)
